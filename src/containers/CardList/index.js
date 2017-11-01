@@ -2,6 +2,8 @@ import React from 'react';
 import CardListItem from '../../components/CardListItem';
 
 const CardList = ({ cards }) => {
+  console.log(cards);
+  
   return(
     <div className="card-list">
       {

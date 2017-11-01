@@ -15,9 +15,9 @@ class App extends Component {
 
   componentDidMount() {
     getCards()
-    .then(cardList => {
+    .then(cards => {
       console.log('invoking function getCards in props');
-      this.props.loadCards(cardList);
+      this.props.loadCards(cards);
     })
   }
 

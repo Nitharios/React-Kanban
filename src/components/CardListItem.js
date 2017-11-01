@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Card = ({ data }) => {
+const Card = ({ title, author, priority, status, created_By, assigned_To }) => {
+  
   return(
     <div className="card">
-      <div>{ data.title }</div>
-      <div>{ data.author }</div>
-      <div>{ data.priority }</div>
-      <div>{ data.status }</div>
-      <div>{ data.created_By }</div>
-      <div>{ data.assigned_To }</div>
+      <div>{ title }</div>
+      <div>{ author }</div>
+      <div>{ priority }</div>
+      <div>{ status }</div>
+      <div>{ created_By }</div>
+      <div>{ assigned_To }</div>
     </div>
   )
 }
