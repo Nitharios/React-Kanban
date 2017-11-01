@@ -7,10 +7,6 @@ import CardList from '../CardList';
 class App extends Component {
   constructor() {
     super();
-
-    // this.queuedCards = [];
-    // this.inProgressCards = [];
-    // this.completedCards = [];
   }
 
   componentDidMount() {
@@ -22,7 +18,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.cards);
     return(
       <div className="App">
         Hello World!
@@ -36,12 +31,16 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('mapstate');
+  
   return {
     cards : state.cards
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
+  console.log('mapDispatchToProps');
+  
   return {
     loadCards : (cards) => {
       console.log('loading the cards');
