@@ -20,25 +20,23 @@ router.route('/')
     ]
   })
   .then((cardList => {
-    console.log('Cards hit');
+    console.log('returned array of cards');
     return res.json(cardList);
   }));
 })
 
 // post to cards will create a new card
 .post((req, res) => {
-  let newCard = {
-    title : req.body.title,
-    priority_id : req.body.priority_id,
-    creator_id : req.body.creator_id,
-    assigned_to_id : req.body.assigned_to_id,
-    status_id : req.body.status_id    
-  };
-
   return Card
-  .create({ newCard })
+  .create({
+    title : req.body.title,
+    priority_id : Number(req.body.priority_id),
+    creator_id : Number(req.body.creator_id),
+    assigned_to_id : Number(req.body.assigned_to_id),
+    status_id : Number(req.body.status_id)
+  })
   .then(response => {
-    console.log('New card posted');
+    console.log('created a new card');
     res.json(success.win);
   })
   .catch(err => {
@@ -50,21 +48,20 @@ router.route('/')
 router.route('/:id')
 .put((req, res) => {
   let id = req.params.id;
-  let updatedCard = {
+
+  return Card
+  .update(
+  { 
     title : req.body.title,
     priority_id : req.body.priority_id,
     creator_id : req.body.creator_id,
     assigned_to_id : req.body.assigned_to_id,
     status_id : req.body.status_id    
-  };
-
-  return Card
-  .update(
-    { updatedCard }, 
+  }, 
     { where : { id : id }}
   )
   .then(response => {
-    console.log('Edit a card');
+    console.log('edited a card');
     res.json(success.win);
   })
   .catch(err => {
@@ -80,7 +77,7 @@ router.route('/:id')
     where : { id : id }
   })
   .then(response => {
-    console.log('delete a card');
+    console.log('deleted a card');
     res.json(success.win);
   })
   .catch(err => {
