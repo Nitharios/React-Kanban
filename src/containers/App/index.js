@@ -4,6 +4,12 @@ import { loadCards } from '../../actions/CardActions';
 import CardList from '../CardList';
 
 class App extends Component {
+
+  componentDidMount() {
+    console.log('HEHE')
+    this.props.loadCards();
+  }
+
   render() {
     return(
       <div className="App">
@@ -18,7 +24,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapstate');
+  console.log('mapstate', state.cards);
   
   return {
     cards : state.cards
@@ -29,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
   console.log('mapDispatchToProps');
   
   return {
-    loadCardList : (cards) => {
+    loadCards : (cards) => {
       console.log('loading the cards');
       dispatch(loadCards(cards));
     }
