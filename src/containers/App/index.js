@@ -6,7 +6,6 @@ import CardList from '../CardList';
 class App extends Component {
 
   componentDidMount() {
-    console.log('HEHE')
     this.props.loadCards();
   }
 
@@ -24,19 +23,14 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapstate', state.cards);
-  
   return {
     cards : state.cards
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log('mapDispatchToProps');
-  
   return {
     loadCards : (cards) => {
-      console.log('loading the cards');
       dispatch(loadCards(cards));
     }
   }

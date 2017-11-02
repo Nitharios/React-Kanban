@@ -2,16 +2,12 @@ import React from 'react';
 import CardListItem from '../../components/CardListItem';
 
 export default ({ cards }) => {
-  console.log('create card-list in div');
-  console.log(cards);
   
   return(
     <div className="card-list">
       {
         cards
         .map((card, idx) => {
-          console.log(card);
-          
           return(
             <CardListItem
               title = { card.title }
