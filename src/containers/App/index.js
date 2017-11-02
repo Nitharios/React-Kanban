@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/cards';
-import { getCardsFromFakeXHR as getCards } from '../../lib/cards.db';
+import thunk from 'redux-thunk';
 import CardList from '../CardList';
 
 class App extends Component {
@@ -10,11 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getCards()
-    .then(cards => {
-      console.log('invoking function getCards in props');
-      this.props.loadCards(cards);
-    })
+
   }
 
   render() {
