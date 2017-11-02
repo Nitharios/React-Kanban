@@ -13,11 +13,23 @@ module.exports = {
       }], {});
     */
 
-    return queryInterface.bulkInsert('statuses', [{
-      name : 'In Queue',
-      createdAt : 'now()',
-      updatedAt : 'now()'
-    }], {});
+    return queryInterface.bulkInsert('statuses', [
+      {
+        name : 'In Queue',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      },
+      {
+        name : 'In Progress',
+        createdAt : 'now()',
+        updatedAt : 'now()'      
+      },
+      {
+        name : 'Done',
+        createdAt : 'now()',
+        updatedAt : 'now()'            
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {

@@ -13,11 +13,23 @@ module.exports = {
       }], {});
     */
 
-    return queryInterface.bulkInsert('priorities', [{
-      name : 'high',
-      createdAt : 'now()',
-      updatedAt : 'now()'
-    }], {});
+    return queryInterface.bulkInsert('priorities', [
+      {
+        name : 'high',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      },
+      {
+        name : 'medium',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      },
+      {
+        name : 'low',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {

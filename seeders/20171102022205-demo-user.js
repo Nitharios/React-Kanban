@@ -13,11 +13,13 @@ module.exports = {
       }], {});
     */
 
-    return queryInterface.bulkInsert('users', [{
-      name : 'DevLeague',
-      createdAt : 'now()',
-      updatedAt : 'now()'
-    }], {});
+    return queryInterface.bulkInsert('users', [
+      {
+        name : 'DevLeague',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
