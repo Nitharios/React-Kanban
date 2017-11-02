@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCards } from '../../actions/cards';
+import { loadCards } from '../../actions/CardActions';
 import CardList from '../CardList';
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  // }
-
   render() {
     return(
       <div className="App">
@@ -33,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
   console.log('mapDispatchToProps');
   
   return {
-    loadCards : (cards) => {
+    loadCardList : (cards) => {
       console.log('loading the cards');
       dispatch(loadCards(cards));
     }
