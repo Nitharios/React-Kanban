@@ -22,9 +22,10 @@ class App extends Component {
   };
 }
 
+// state carries the information on data which is defined in reducers index
 const mapStateToProps = (state) => {
   return {
-    cards : state.cards
+    cards : state.data
   }
 }
 

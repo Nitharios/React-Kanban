@@ -1,19 +1,47 @@
 import axios from 'axios';
+import success from '../lib/success';
 const listOfCards = '/api/cards';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
+export const ADD_CARD = 'ADD_CARD';
+export const ERROR = 'ERROR';
 
 export const loadCards = () => {
-  return (dispatch) => {
+  return dispatch => {
     return axios.get(listOfCards)
-    .then((cards) => {
+    .then(cards => {
       dispatch({
         type : LOAD_CARDS,
         cards : cards.data
       })
     })
     .catch(err => {
-      return err;
+      console.log(err);
+      
+      dispatch({
+        type : ERROR,
+        response : success.fail        
+      })
     })
   }
 };
+
+export const addCard = (newCard) => {
+  return dispatch => {
+    return axios.post(listOfCards, newCard)
+    .then(response => {
+      dispatch({
+        type : ADD_CARD,
+        response : success.win
+      })
+    })
+    .catch(err => {
+      console.log(err);
+
+      dispatch({
+        type : ERROR,
+        response : success.fail
+      })
+    })
+  }
+}

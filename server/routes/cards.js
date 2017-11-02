@@ -40,7 +40,7 @@ router.route('/')
     res.json(success.win);
   })
   .catch(err => {
-    res.json(success.lose);
+    res.json(success.fail);
   });
 });
 
@@ -65,7 +65,7 @@ router.route('/:id')
     res.json(success.win);
   })
   .catch(err => {
-    res.json(success.lose);
+    res.json(success.fail);
   });
 })
 
@@ -81,7 +81,7 @@ router.route('/:id')
     res.json(success.win);
   })
   .catch(err => {
-    res.json(success.lose);
+    res.json(success.fail);
   });
 });
 
