@@ -44,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey : {
         name : "status_id",
         allowNull : false,
-        defaultValue : 3
+        defaultValue : 1
       }
     });
   };
