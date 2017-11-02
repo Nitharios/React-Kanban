@@ -4,7 +4,7 @@ const initialState = {
   cards : []
 };
 
-const reducers = (state = initialState, action) => {
+export default (state = initialState, action) => {
   console.log('reducers : activated');
   console.log('reducers : ', action);
   switch(action.type) {
@@ -15,5 +15,3 @@ const reducers = (state = initialState, action) => {
       return state;
   }
 };
-
-export default reducers;

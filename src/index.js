@@ -1,16 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import reducers from './reducers';
+import store from './lib/store';
 import App from './containers/App';
-import registerServiceWorker from './registerServiceWorker';
-
-const store = createStore(
-  reducers,
-  applyMiddleware(thunk)
-  );
+import registerServiceWorker from './lib/registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={ store }>
@@ -18,4 +11,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
 registerServiceWorker();

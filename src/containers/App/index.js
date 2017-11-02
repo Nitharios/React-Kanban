@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/cards';
-import thunk from 'redux-thunk';
 import CardList from '../CardList';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
     return(
@@ -45,9 +40,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const ConnectedApp = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
 
-export default ConnectedApp;

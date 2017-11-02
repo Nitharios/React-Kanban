@@ -1,7 +1,7 @@
 import React from 'react';
 import CardListItem from '../../components/CardListItem';
 
-const CardList = ({ cards }) => {
+export default ({ cards }) => {
   console.log('create card-list in div');
   
   return(
@@ -24,5 +24,3 @@ const CardList = ({ cards }) => {
     </div>
   )
 }
-
-export default CardList;

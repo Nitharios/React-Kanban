@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardItem = ({ title, author, priority, status, created_By, assigned_To }) => {
+export default ({ title, author, priority, status, created_By, assigned_To }) => {
   
   return(
     <div className="card">
@@ -13,5 +13,3 @@ const CardItem = ({ title, author, priority, status, created_By, assigned_To }) 
     </div>
   )
 }
-
-export default CardItem;

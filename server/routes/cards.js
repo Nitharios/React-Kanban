@@ -1,6 +1,6 @@
 const express = require('express');
 const success = require('../lib/success');
-const db = require('../models');
+const db = require('../../models');
 const Card = db.card;
 const User = db.user;
 const Priority = db.priority;
