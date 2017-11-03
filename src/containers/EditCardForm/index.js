@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCard } from '../../actions/CardActions';
+import { editCard } from '../../actions/CardActions';
 
-class AddCardForm extends Component {
+class EditCardForm extends Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +27,7 @@ class AddCardForm extends Component {
 
   handleSubmit(e) {
     // e.preventDefault();
-    this.props.addCard({
+    this.props.editCard({
       title : this.state.title,
       priority : this.state.priority,
       created_By : this.state.created_By,
@@ -37,16 +37,16 @@ class AddCardForm extends Component {
 
   render() {
     return(
-      <div id="addCardForm">
+      <div id="editCardForm">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
-            className="addInput"
+            className="editInput"
             name="title"
             placeholder="title"
             onChange={ this.handleChange.bind(this) }
             value={ this.state.title } />
           <select
-            className="addInput"
+            className="editInput"
             name="priority"
             onChange={ this.handleChange.bind(this) }
             value={ this.state.priority } >
@@ -56,13 +56,13 @@ class AddCardForm extends Component {
             <option value="low">Blocker</option>
           </select>
           <input
-            className="addInput"
+            className="editInput"
             name="created_By"
             placeholder="Created by..."
             onChange={ this.handleChange.bind(this) }
             value={ this.state.created_By} />
           <input
-            className="addInput"
+            className="editInput"
             name="assigned_To"
             placeholder="Assigned to..."
             onChange={ this.handleChange.bind(this) }
@@ -78,8 +78,8 @@ class AddCardForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCard : (newCard) => {
-      dispatch(addCard(newCard))
+    editCard : (updatedCard) => {
+      dispatch(editCard(updatedCard))
     }
   }
 }
@@ -87,4 +87,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(AddCardForm);
+)(EditCardForm);

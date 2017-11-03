@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards, deleteCard } from '../../actions/CardActions';
-import CardList from '../CardList';
+import CardList from '../../components/CardList';
 import AddCardForm from '../AddCardForm';
 
 class App extends Component {

@@ -5,6 +5,7 @@ const listOfCards = '/api/cards';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
+export const EDIT_CARD = 'EDIT_CARD';
 export const DEL_CARD = 'DEL_CARD';
 export const ERROR = 'ERROR';
 
@@ -18,18 +19,15 @@ export const loadCards = () => {
       })
     })
     .catch(err => {
-      console.log(err);
-
       dispatch({
         type : ERROR,
-        response : success.fail        
+        success : success.fail        
       })
     })
   }
 };
 
-export const addCard = (newCard) => {
-  console.log(newCard);
+export const addCard = newCard => {
   return dispatch => {
     return axios.post(listOfCards, newCard)
     .then(response => {
@@ -41,23 +39,38 @@ export const addCard = (newCard) => {
     .catch(err => {
       dispatch({
         type : ERROR,
-        response : success.fail
+        success : success.fail
       })
     })
   }
 }
 
-export const deleteCard = (cardId) => {
+export const editCard = updatedCard => {
   return dispatch => {
-    return axios.delete(`${listOfCards}/${cardId}`)
+    return axios.put(`${listOfCards}/${updatedCard.id}`)
+    .then(response => {
+      dispatch({
+        type : EDIT_CARD,
+        card : updatedCard
+      })
+    })
+  }
+}
+
+export const deleteCard = cardID => {
+  return dispatch => {
+    return axios.delete(`${listOfCards}/${cardID}`)
     .then(response => {
       dispatch({
         type : DEL_CARD,
-        id : cardId
+        id : cardID
       })
     })
     .catch(err => {
-      console.log(err);
+      dispatch({
+        type : ERROR,
+        success : success.fail
+      })
     })
   }
 }
