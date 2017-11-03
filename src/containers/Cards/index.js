@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCards, deleteCard } from '../../actions/CardActions';
+import { loadCards, makeCardEditable, deleteCard } from '../../actions/CardActions';
 import CardListItem from '../../components/CardListItem';
 
 class Cards extends Component {
   constructor() {
     super();
     
-    this.state = {
-      isHidden : true
-    }
+    this.toggleHidden = this.toggleHidden.bind(this); 
   }
 
-  toggleHidden () {
-    this.setState({
-      isHidden : !this.state.isHidden
-    })
+  toggleHidden(e) {
+    console.log(e.target);
+  }
+
+  editCard(cardID) {
+    console.log(cardID);
+    this.props.makeCardEditable(cardID);
   }
 
   componentDidMount() {
@@ -33,11 +34,12 @@ class Cards extends Component {
                 title = { card.title }
                 priority = { card.priority.name }
                 status = { card.status.name }
-                created_By = { card.user.name }
-                assigned_To = { card.assigned_To }
+                created_By = { card.creator.name }
+                assigned_To = { card.dev.name }
                 deleteCard = { this.props.deleteCard }
-                toggleHidden = { this.toggleHidden.bind(this) }
-                isHidden = { this.state.isHidden }
+                toggleHidden = { this.toggleHidden }
+                editCard = { this.editCard.bind(this, card.id) }
+                isEditing = { card.isEditing }
                 key = { idx}
               />
             )
@@ -50,6 +52,8 @@ class Cards extends Component {
 
 // state carries the information on data which is defined in reducers index
 const mapStateToProps = state => {
+  console.log('string', state.data);
+  
   return {
     cards : state.data
   }
@@ -61,8 +65,12 @@ const mapDispatchToProps = dispatch => {
       dispatch(loadCards(cards));
     },
 
-    deleteCard : id => {
-      dispatch(deleteCard(id));
+    makeCardEditable : cardID => {
+      dispatch(makeCardEditable(cardID));
+    },
+
+    deleteCard : cardID => {
+      dispatch(deleteCard(cardID));
     }
   }
 }

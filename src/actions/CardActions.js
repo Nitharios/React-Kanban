@@ -5,6 +5,7 @@ const listOfCards = '/api/cards';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
+export const EDITING = 'EDITING';
 export const EDIT_CARD = 'EDIT_CARD';
 export const DEL_CARD = 'DEL_CARD';
 export const ERROR = 'ERROR';
@@ -44,6 +45,15 @@ export const addCard = newCard => {
     })
   }
 }
+
+export const makeCardEditable = cardID => {  
+  return dispatch => {
+    return dispatch({
+      type : EDITING,
+      cardID : cardID
+    })
+  }
+} ;
 
 export const editCard = updatedCard => {
   return dispatch => {

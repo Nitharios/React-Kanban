@@ -1,20 +1,17 @@
 import React from 'react';
 
-export default ({ id, title, priority, status, created_By, assigned_To, deleteCard, toggleHidden, isHidden }) => {
+export default ({ id, title, priority, status, created_By, assigned_To, deleteCard, toggleHidden, editCard, isEditing }) => {
 
+  console.log('isEditing', isEditing);
+  
   // How do you maintain state within this scope?
-
-  function toggleEdit() {
-    toggleHidden()
-  }
-
   function removeCard() {
     deleteCard(id);
   };
 
   return(
     <div className="card">
-      { !isHidden &&
+      { isEditing &&
         <div>
           <div>{ title }</div>
           <div>{ priority }</div>
@@ -27,7 +24,7 @@ export default ({ id, title, priority, status, created_By, assigned_To, deleteCa
         </div>
       }
 
-        <input type="submit" value="edit" onClick={ toggleEdit } />
+        <input type="submit" value="edit" onClick={ editCard } />
     </div>
   )
 }
