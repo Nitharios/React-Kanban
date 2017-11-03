@@ -1,5 +1,5 @@
 import React from 'react';
-import CardListItem from './CardListItem';
+import CardListItem from '../../components/CardListItem';
 
 export default ({ cards, deleteCard, isHidden }) => {  
   return(

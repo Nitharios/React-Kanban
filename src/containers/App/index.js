@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards, deleteCard } from '../../actions/CardActions';
-import CardList from '../../components/CardList';
+import CardList from '../CardList';
 import AddCardForm from '../AddCardForm';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isHidden : true
+    }
+  }
 
-  trackID(id) {
-    return id;
+  toggleHidden () {
+    this.setState({
+      isHidden : !this.state.isHidden
+    })
   }
 
   componentDidMount() {
@@ -22,9 +30,18 @@ class App extends Component {
         <CardList
           cards={ this.props.cards }
           deleteCard={ this.props.deleteCard }
+          isHidden={ this.state.isHidden }
         />
 
         <AddCardForm />
+
+        { !this.state.isHidden &&
+          <div>Shhhhh...I'm hiding</div>
+        }
+
+        <button onClick={this.toggleHidden.bind(this)}>
+        Click
+        </button>
 
      </div> 
     )
