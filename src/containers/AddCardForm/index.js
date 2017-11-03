@@ -78,8 +78,8 @@ class AddCardForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCard : (card) => {
-      dispatch(addCard(card))
+    addCard : (newCard) => {
+      dispatch(addCard(newCard))
     }
   }
 }
