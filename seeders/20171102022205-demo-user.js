@@ -18,6 +18,11 @@ module.exports = {
         name : 'DevLeague',
         createdAt : 'now()',
         updatedAt : 'now()'
+      },
+      {
+        name : 'Nathan',
+        createdAt : 'now()',
+        updatedAt : 'now()'
       }
     ], {});
   },

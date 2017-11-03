@@ -17,7 +17,7 @@ module.exports = {
       title : 'Learn React',
       priority_id : 1,
       creator_id : 1,
-      assigned_to_id : 1,
+      assigned_to_id : 2,
       status_id : 1,
       createdAt : 'now()',
       updatedAt : 'now()'
