@@ -8,8 +8,8 @@ class EditCard extends Component {
 
     this.state = {
       title : '',
-      priority : 1,
-      status : 1,
+      priority : '',
+      status : '',
       created_By : 1,
       assigned_To : 1
     }

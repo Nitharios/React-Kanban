@@ -2,8 +2,10 @@ import React from 'react';
 
 export default ({ id, title, priority, status, created_By, assigned_To, deleteCard }) => {
 
+  console.log(deleteCard);
+
   function removeCard() {
-    deleteCard(id)
+    deleteCard(id);
   };
 
   return(

@@ -35,7 +35,7 @@ class Cards extends Component {
                 status = { card.status.name }
                 created_By = { card.user.name }
                 assigned_To = { card.assigned_To }
-                deleteCard = { deleteCard }
+                deleteCard = { this.props.deleteCard }
                 key = { idx}
               />
             )

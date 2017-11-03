@@ -28,7 +28,13 @@ module.exports = {
         name : 'low',
         createdAt : 'now()',
         updatedAt : 'now()'
+      },
+      {
+        name : 'blocker',
+        createdAt : 'now()',
+        updatedAt : 'now()'
       }
+
     ], {});
   },
 

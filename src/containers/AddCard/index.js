@@ -8,7 +8,7 @@ class AddCardForm extends Component {
 
     this.state = {
       title : '',
-      priority : '',
+      priority : 1,
       status : 1,
       created_By : 1,
       assigned_To : 1
@@ -48,11 +48,12 @@ class AddCardForm extends Component {
           <select
             className="addInput"
             name="priority"
+            defaultValue={ this.state.priority }
             onChange={ this.handleChange.bind(this) }>
-            <option value="low">Low</option>
-            <option value="low">Medium</option>
-            <option value="low">High</option>
-            <option value="low">Blocker</option>
+            <option value="3">Low</option>
+            <option value="2">Medium</option>
+            <option value="1">High</option>
+            <option value="4">Blocker</option>
           </select>
           <input
             className="addInput"
