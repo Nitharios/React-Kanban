@@ -1,4 +1,4 @@
-import { LOAD_CARDS, ADD_CARD, ERROR } from '../actions/CardActions';
+import { LOAD_CARDS, ADD_CARD, DEL_CARD } from '../actions/CardActions';
 
 const initialState = [];
 
@@ -11,8 +11,12 @@ export default (state = initialState, action) => {
     case ADD_CARD: 
       return [ ...state, action.card ];
 
-    case ERROR:
-      return [ ...state, action.error ];
+    case DEL_CARD:
+      return state.filter(card => {
+        return card.id !== action.id
+      }) 
+    // case ERROR:
+    //   return state;
 
     default:
       return state;

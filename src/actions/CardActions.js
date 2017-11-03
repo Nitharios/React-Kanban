@@ -1,9 +1,11 @@
 import axios from 'axios';
 import success from '../lib/success';
+
 const listOfCards = '/api/cards';
 
 export const LOAD_CARDS = 'LOAD_CARDS';
 export const ADD_CARD = 'ADD_CARD';
+export const DEL_CARD = 'DEL_CARD';
 export const ERROR = 'ERROR';
 
 export const loadCards = () => {
@@ -41,6 +43,21 @@ export const addCard = (newCard) => {
         type : ERROR,
         response : success.fail
       })
+    })
+  }
+}
+
+export const deleteCard = (cardId) => {
+  return dispatch => {
+    return axios.delete(`${listOfCards}/${cardId}`)
+    .then(response => {
+      dispatch({
+        type : DEL_CARD,
+        id : cardId
+      })
+    })
+    .catch(err => {
+      console.log(err);
     })
   }
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default ({ title, priority, status, created_By, assigned_To }) => {
+export default ({ id, title, priority, status, created_By, assigned_To, deleteCard }) => {
   
+  function removeCard() {
+    deleteCard(id)
+  };
+
   return(
     <div className="card">
       <div>{ title }</div>
@@ -9,6 +13,9 @@ export default ({ title, priority, status, created_By, assigned_To }) => {
       <div>{ status }</div>
       <div>{ created_By }</div>
       <div>{ assigned_To }</div>
+      <div>
+        <input type="submit" value="delete" onClick={ removeCard } /> 
+      </div>
     </div>
   )
 }
