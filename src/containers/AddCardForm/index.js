@@ -8,10 +8,10 @@ class AddCardForm extends Component {
 
     this.state = {
       title : '',
-      priority : '',
-      status : '',
-      created_By : '',
-      assigned_To : ''
+      priority : 3,
+      status : 1,
+      created_By : 1,
+      assigned_To : 1
     }
   }
 
@@ -26,8 +26,8 @@ class AddCardForm extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    this.props.addBook({
+    // e.preventDefault();
+    this.props.addCard({
       title : this.state.title,
       priority : this.state.priority,
       created_By : this.state.created_By,

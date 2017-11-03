@@ -27,19 +27,21 @@ router.route('/')
 
 // post to cards will create a new card
 .post((req, res) => {
+  console.log(req.body);
   return Card
   .create({
     title : req.body.title,
-    priority_id : Number(req.body.priority_id),
-    creator_id : Number(req.body.creator_id),
-    assigned_to_id : Number(req.body.assigned_to_id),
-    status_id : Number(req.body.status_id)
+    priority_id : Number(req.body.priority),
+    creator_id : Number(req.body.created_By),
+    assigned_to_id : Number(req.body.assigned_To),
+    status_id : Number(req.body.status_id) || 1
   })
   .then(response => {
     console.log('created a new card');
     res.json(success.win);
   })
   .catch(err => {
+    console.log(success.fail);
     res.json(success.fail);
   });
 });

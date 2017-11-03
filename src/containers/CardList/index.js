@@ -2,6 +2,7 @@ import React from 'react';
 import CardListItem from '../../components/CardListItem';
 
 export default ({ cards }) => {
+  console.log(cards);
   
   return(
     <div className="card-list">

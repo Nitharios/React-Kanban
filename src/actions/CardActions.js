@@ -17,7 +17,7 @@ export const loadCards = () => {
     })
     .catch(err => {
       console.log(err);
-      
+
       dispatch({
         type : ERROR,
         response : success.fail        
@@ -27,17 +27,16 @@ export const loadCards = () => {
 };
 
 export const addCard = (newCard) => {
+  console.log(newCard);
   return dispatch => {
     return axios.post(listOfCards, newCard)
     .then(response => {
       dispatch({
         type : ADD_CARD,
-        response : success.win
+        card : newCard
       })
     })
     .catch(err => {
-      console.log(err);
-
       dispatch({
         type : ERROR,
         response : success.fail
