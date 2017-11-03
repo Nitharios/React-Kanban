@@ -14,13 +14,15 @@ router.route('/')
 .get((req, res) => {
   return Card.findAll({
     include : [
-    { model : User },
+    { model : User, as : 'creator' },
+    { model : User, as : 'dev' },
     { model : Priority },
     { model : Status }
     ]
   })
   .then((cardList => {
     console.log('returned array of cards');
+    
     return res.json(cardList);
   }));
 })
