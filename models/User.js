@@ -19,6 +19,16 @@ module.exports = function(sequelize, DataTypes) {
     ]
   });
 
+  User.associate = function(models) {
+    User.hasMany(models.card, {
+      foreignKey : 'creator_id', as : 'cards'
+    });
+
+    User.hasMany(models.card, {
+      foreignKey : 'assigned_to_id', as : 'tasks'
+    });
+  }
+
   return User;
 };
 

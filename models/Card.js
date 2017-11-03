@@ -21,31 +21,25 @@ module.exports = function(sequelize, DataTypes) {
 
   Card.associate = function(models) {
     Card.belongsTo(models.priority, {
-      foreignKey : {
-        name : "priority_id",
-        allowNull : false
-      }
+      foreignKey :  "priority_id",
+      allowNull : false
     });
 
     Card.belongsTo(models.user, {
-      foreignKey : {
-        name : "creator_id",
-        allowNull : false
-      },
+      foreignKey : "creator_id",
+      as : "creator",
+      allowNull : false
     });
 
     Card.belongsTo(models.user, {
-      foreignKey : {
-        name : "assigned_to_id"
-      }
+      foreignKey : "assigned_to_id",
+      as : "dev"
     });
 
     Card.belongsTo(models.status, {
-      foreignKey : {
-        name : "status_id",
-        allowNull : false,
-        defaultValue : 1
-      }
+      foreignKey :  "status_id",
+      allowNull : false,
+      defaultValue : 1 
     });
   };
 

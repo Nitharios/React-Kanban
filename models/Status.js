@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     }
   },
   {
+    tableName : 'statuses'
+  },
+  {
     indexes : [
       {
         name : 'status_pkey',
