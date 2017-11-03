@@ -6,6 +6,7 @@ import CardListItem from '../../components/CardListItem';
 class Cards extends Component {
   constructor() {
     super();
+    
     this.state = {
       isHidden : true
     }

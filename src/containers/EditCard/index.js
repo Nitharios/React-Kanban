@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editCard } from '../../actions/CardActions';
 
-class EditCardForm extends Component {
+class EditCard extends Component {
   constructor(props) {
     super(props);
 
@@ -87,4 +87,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(EditCardForm);
+)(EditCard);

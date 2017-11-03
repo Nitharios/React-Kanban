@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cards from '../Cards';
-import AddCardForm from '../AddCardForm';
+import AddCardForm from '../AddCard';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
 
         <Cards />
         <AddCardForm />
-        
+
      </div> 
     )
   };
