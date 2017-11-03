@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/CardActions';
 import CardList from '../CardList';
+import AddCardForm from '../AddCardForm';
 
 class App extends Component {
 
@@ -17,6 +18,9 @@ class App extends Component {
         <CardList
           cards={ this.props.cards }
         />
+
+        <AddCardForm />
+
      </div> 
     )
   };
