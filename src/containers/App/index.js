@@ -6,6 +6,10 @@ import AddCardForm from '../AddCardForm';
 
 class App extends Component {
 
+  trackID(id) {
+    return id;
+  }
+
   componentDidMount() {
     this.props.loadCards();
   }

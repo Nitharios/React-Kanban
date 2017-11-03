@@ -8,7 +8,7 @@ class AddCardForm extends Component {
 
     this.state = {
       title : '',
-      priority : 1,
+      priority : '',
       status : 1,
       created_By : 1,
       assigned_To : 1
@@ -48,8 +48,7 @@ class AddCardForm extends Component {
           <select
             className="addInput"
             name="priority"
-            onChange={ this.handleChange.bind(this) }
-            value={ this.state.priority } >
+            onChange={ this.handleChange.bind(this) }>
             <option value="low">Low</option>
             <option value="low">Medium</option>
             <option value="low">High</option>
