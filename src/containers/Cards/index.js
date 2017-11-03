@@ -36,6 +36,8 @@ class Cards extends Component {
                 created_By = { card.user.name }
                 assigned_To = { card.assigned_To }
                 deleteCard = { this.props.deleteCard }
+                toggleHidden = { this.toggleHidden.bind(this) }
+                isHidden = { this.state.isHidden }
                 key = { idx}
               />
             )
