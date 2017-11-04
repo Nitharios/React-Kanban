@@ -38,7 +38,7 @@ class AddCardForm extends Component {
   render() {
     return(
       <div id="addCardForm">
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={ this.handleSubmit.bind(this) }>
           <input
             className="addInput"
             name="title"

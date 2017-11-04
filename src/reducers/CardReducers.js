@@ -12,18 +12,15 @@ export default (state = initialState, action) => {
       return [ ...state, action.card ];
 
     case EDITING:
-      console.log('before', state[0]);
-      
-      const upState = state.map(card => {
+      return state.map(card => {
         if (card.id === action.cardID) {
-          card.isEditing = true;
-         
+          return Object.assign({}, card, {
+            isEditing : !card.isEditing
+          })
         }
+
         return card;
       });
-     
-      console.log('after', upState);
-      return upState;
 
     case DEL_CARD:
       return state.filter(card => {
