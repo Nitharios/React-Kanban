@@ -18,7 +18,8 @@ router.route('/')
     { model : User, as : 'dev' },
     { model : Priority },
     { model : Status }
-    ]
+    ],
+    order : [[ 'id' ]]
   })
   .then((cardList => {
     console.log('returned array of cards');
