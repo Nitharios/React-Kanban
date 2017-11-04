@@ -17,42 +17,42 @@ export const loadCards = () => {
       dispatch({
         type : LOAD_CARDS,
         cards : cards.data
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type : ERROR,
         success : success.fail        
-      })
-    })
-  }
+      });
+    });
+  };
 };
 
 export const addCard = newCard => {
   return dispatch => {
     return axios.post(listOfCards, newCard)
-    .then(response => {
+    .then(newCardDetails => {
       dispatch({
         type : ADD_CARD,
-        card : newCard
-      })
+        card : newCardDetails.data
+      });
     })
     .catch(err => {
       dispatch({
         type : ERROR,
         success : success.fail
-      })
-    })
-  }
-}
+      });
+    });
+  };
+};
 
 export const makeCardEditable = cardID => {  
   return dispatch => {
     return dispatch({
       type : EDITING,
       cardID : cardID
-    })
-  }
+    });
+  };
 } ;
 
 export const editCard = updatedCard => {
@@ -62,10 +62,10 @@ export const editCard = updatedCard => {
       dispatch({
         type : EDIT_CARD,
         updatedCard : updatedCard
-      })
-    })
-  }
-}
+      });
+    });
+  };
+};
 
 export const deleteCard = cardID => {
   return dispatch => {
@@ -74,13 +74,13 @@ export const deleteCard = cardID => {
       dispatch({
         type : DEL_CARD,
         id : cardID
-      })
+      });
     })
     .catch(err => {
       dispatch({
         type : ERROR,
         success : success.fail
-      })
-    })
-  }
-}
+      });
+    });
+  };
+};

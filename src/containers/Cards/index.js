@@ -12,7 +12,7 @@ class Cards extends Component {
       status : '',
       created_By : '',
       assigned_To : ''
-    }
+    };
 
     this.toggleHidden = this.toggleHidden.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,7 +31,7 @@ class Cards extends Component {
       status : card.status.id,
       created_By : card.creator.id,
       assigned_To : card.dev.id
-    })
+    });
   }
 
   handleChange(e) {
@@ -41,7 +41,7 @@ class Cards extends Component {
 
     this.setState({
       [name] : value
-    })
+    });
   }
 
   handleSubmit(id, e) {    
@@ -53,7 +53,7 @@ class Cards extends Component {
       status : this.state.status,
       created_By : this.state.created_By,
       assigned_To : this.state.assigned_To
-    })
+    });
   }
 
   componentDidMount() {

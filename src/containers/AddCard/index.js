@@ -8,11 +8,11 @@ class AddCardForm extends Component {
 
     this.state = {
       title : '',
-      priority : '',
+      priority : 1,
       status : 1,
       created_by : '',
       assigned_to : ''
-    }
+    };
   }
 
   handleChange(e) {
@@ -22,18 +22,26 @@ class AddCardForm extends Component {
 
     this.setState({
       [name] : value
-    })
+    });
   }
 
   handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     this.props.addCard({
       title : this.state.title,
       priority : this.state.priority,
       status : this.state.status,
       created_by : this.state.created_by,
       assigned_to : this.state.assigned_to
-    })
+    });
+
+    this.setState({
+      title : '',
+      priority : 1,
+      status : 1,
+      created_by : '',
+      assigned_to : ''
+    });
   }
 
   render() {
@@ -51,9 +59,9 @@ class AddCardForm extends Component {
             name="priority"
             defaultValue={ this.state.priority }
             onChange={ this.handleChange.bind(this) }>
-            <option value="3">Low</option>
-            <option value="2">Medium</option>
             <option value="1">High</option>
+            <option value="2">Medium</option>
+            <option value="3">Low</option>
             <option value="4">Blocker</option>
           </select>
           <input

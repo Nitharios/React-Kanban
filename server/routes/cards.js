@@ -30,21 +30,28 @@ router.route('/')
 
 // post to cards will create a new card
 .post((req, res) => {
-  console.log(req.body);
-  return Card
-  .create({
+  return Card.create({
     title : req.body.title,
     priority_id : Number(req.body.priority),
     creator_id : Number(req.body.created_by),
     assigned_to_id : Number(req.body.assigned_to),
     status_id : Number(req.body.status)
   })
-  .then(response => {
+  .then(newCard => {
     console.log('created a new card');
-    res.json(success.win);
+    newCard.reload({
+      include : [
+        { model : User, as : 'creator' },
+        { model : User, as : 'dev' },
+        { model : Priority },
+        { model : Status }
+      ]
+    })
+    .then(newCardDetails => {
+      res.json(newCardDetails);
+    });
   })
   .catch(err => {
-    console.log(err);
     res.json(success.fail);
   });
 });
