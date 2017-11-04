@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({ id, title, priority_Id, priority, status_Id, status, created_By, assigned_To, toggleEdit, isEditing, editCard, deleteCard }) => {
-  
+export default ({ id, title, priority_Id, priority, status_Id, status, created_By, assigned_To, toggleEdit, isEditing, editCard, deleteCard, handleChange, handleSubmit }) => {  
+
   function removeCard() {
     deleteCard(id);
   };
@@ -15,24 +15,25 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
           <div>{ status }</div>
           <div>{ created_By }</div>
           <div>{ assigned_To }</div>
+          <input type="submit" value="EDIT" onClick={ toggleEdit } />
         </div>
       }
 
       { isEditing &&
         <div>
-          <form onSubmit={ editCard }>
+          <form onSubmit={ (e) => handleSubmit(id, e) }>
             <div>
               <input
                 className="addInput"
                 name="title"
-                // onChange={ this.handleChange.bind(this) }
+                onChange={ handleChange }
                 defaultValue={ title } />
             </div>
             <div>
               <select
                 className="addInput"
                 name="priority"
-                // onChange={ this.handleChange.bind(this) }>
+                onChange={ handleChange }
                 defaultValue={ priority_Id }>
                 <option value="1">High</option>
                 <option value="2">Medium</option>
@@ -44,7 +45,7 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
               <select
                 className="addInput"
                 name="status"
-                // onChange={ this.handleChange.bind(this) }>
+                onChange={ handleChange }
                 defaultValue={ status_Id }>
                 <option value="1">In Queue</option>
                 <option value="2">In Progress</option>
@@ -55,26 +56,27 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
               <input
                 className="addInput"
                 name="created_By"
-                // onChange={ this.handleChange.bind(this) }
+                onChange={ handleChange }
                 defaultValue={ created_By} />
             </div>
             <div>
               <input
                 className="addInput"
                 name="assigned_To"
-                // onChange={ this.handleChange.bind(this) }
+                onChange={ handleChange }
                 defaultValue={ assigned_To } />
             </div>    
-              <input
-                type="submit"
-                value="update" />
+              <input type="submit"  value="UPDATE" />
             </form>
+            <button type="submit" onClick={ toggleEdit }>
+              UNDO
+            </button>
+            <button type="submit" onClick={ removeCard }>DELETE
+            </button>
           <div>
-            <input type="submit" value="delete" onClick={ removeCard } /> 
           </div>      
         </div>
       }
-        <input type="submit" value="edit" onClick={ toggleEdit } />
     </div>
   )
 }

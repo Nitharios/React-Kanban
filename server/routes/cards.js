@@ -51,7 +51,9 @@ router.route('/')
 // put to card id will edit a card
 router.route('/:id')
 .put((req, res) => {
-  let id = req.params.id;
+  console.log(req.body);
+  
+  let id = req.body.id;
 
   return Card
   .update(
@@ -69,6 +71,8 @@ router.route('/:id')
     res.json(success.win);
   })
   .catch(err => {
+    console.log(err);
+    
     res.json(success.fail);
   });
 })

@@ -26,8 +26,9 @@ export default (state = initialState, action) => {
       const updatedCard = action.updatedCard;
 
       return state.map(card => {
-        if (card.id === action.updatedCard.id) {
+        if (card.id === updatedCard.id) {
           return Object.assign({}, card, {
+            id : updatedCard.id,
             title : updatedCard.title,
             priority : updatedCard.priority,
             status : updatedCard.status,

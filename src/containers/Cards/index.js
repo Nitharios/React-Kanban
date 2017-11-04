@@ -6,8 +6,17 @@ import CardListItem from '../../components/CardListItem';
 class Cards extends Component {
   constructor() {
     super();
-    
+    this.state = {
+      title : '',
+      priority : 1,
+      status : 1,
+      created_By : 1,
+      assigned_To : 1
+    }
+
     this.toggleHidden = this.toggleHidden.bind(this); 
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   toggleHidden(e) {
@@ -16,6 +25,28 @@ class Cards extends Component {
 
   toggleEdit(cardID) {
     this.props.makeCardEditable(cardID);
+  }
+
+  handleChange(e) {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name] : value
+    })
+  }
+
+  handleSubmit(id, e) {    
+    e.preventDefault();
+    this.props.editCard({
+      id : id,
+      title : this.state.title,
+      priority : this.state.priority,
+      status : this.state.status,
+      created_By : this.state.created_By,
+      assigned_To : this.state.assigned_To
+    })
   }
 
   componentDidMount() {
@@ -41,6 +72,8 @@ class Cards extends Component {
                 isEditing = { card.isEditing }
                 editCard = { this.props.editCard }
                 deleteCard = { this.props.deleteCard }
+                handleChange = { this.handleChange }
+                handleSubmit = { this.handleSubmit }
                 key = { idx}
               />
             )
