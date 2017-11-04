@@ -4,7 +4,7 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
 
   function removeCard() {
     deleteCard(id);
-  };
+  }
 
   return(
     <div className="card">

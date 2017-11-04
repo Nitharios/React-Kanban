@@ -11,7 +11,7 @@ export const DEL_CARD = 'DEL_CARD';
 export const ERROR = 'ERROR';
 
 export const loadCards = () => {
-  return dispatch => {
+  return dispatch => {    
     return axios.get(listOfCards)
     .then(cards => {
       dispatch({
@@ -58,10 +58,10 @@ export const makeCardEditable = cardID => {
 export const editCard = updatedCard => {
   return dispatch => {
     return axios.put(`${listOfCards}/${updatedCard.id}`, updatedCard)
-    .then(response => {
+    .then(updatedCardDetails => {      
       dispatch({
         type : EDIT_CARD,
-        updatedCard : updatedCard
+        updatedCard : updatedCardDetails.data
       });
     });
   };

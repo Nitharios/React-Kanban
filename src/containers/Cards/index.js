@@ -60,7 +60,7 @@ class Cards extends Component {
     this.props.loadCards();
   }
 
-  render() {
+  render() {    
     return(
       <div className="App">
         { this.props.cards

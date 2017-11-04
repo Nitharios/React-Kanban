@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         if (card.id === action.cardID) {
           return Object.assign({}, card, {
             isEditing : !card.isEditing
-          })
+          });
         }
 
         return card;
@@ -33,8 +33,9 @@ export default (state = initialState, action) => {
             priority : updatedCard.priority,
             status : updatedCard.status,
             created_By : updatedCard.created_By,
-            assigned_To : updatedCard.assigned_To
-          })
+            assigned_To : updatedCard.assigned_To,
+            isEditing : false
+          });
         }
 
         return card;
@@ -42,8 +43,8 @@ export default (state = initialState, action) => {
 
     case DEL_CARD:
       return state.filter(card => {
-        return card.id !== action.id
-      }) 
+        return card.id !== action.id;
+      });
 
     default:
       return state;

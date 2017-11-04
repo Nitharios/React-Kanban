@@ -58,25 +58,35 @@ router.route('/')
 
 // put to card id will edit a card
 router.route('/:id')
-.put((req, res) => {
-  console.log(req.body);
-  
+.put((req, res) => {  
   let id = req.body.id;
 
   return Card
-  .update(
-  { 
+  .update({ 
     title : req.body.title,
     priority_id : Number(req.body.priority),
     creator_id : Number(req.body.created_By),
     assigned_to_id : Number(req.body.assigned_To),
     status_id : Number(req.body.status)
   }, 
-    { where : { id : id }}
-  )
-  .then(response => {
+  { 
+    where : { id : id },
+    returning : true
+  })
+  .then(updatedCard => {
     console.log('edited a card');
-    res.json(success.win);
+    
+    updatedCard[1][0].reload({
+      include : [
+        { model : User, as : 'creator' },
+        { model : User, as : 'dev' },
+        { model : Priority },
+        { model : Status }
+      ]
+    })
+    .then(updatedCardDetails => {
+      res.json(updatedCardDetails);
+    });
   })
   .catch(err => {
     console.log(err);
