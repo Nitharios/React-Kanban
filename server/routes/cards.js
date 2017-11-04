@@ -59,10 +59,10 @@ router.route('/:id')
   .update(
   { 
     title : req.body.title,
-    priority_id : req.body.priority_id,
-    creator_id : req.body.creator_id,
-    assigned_to_id : req.body.assigned_to_id,
-    status_id : req.body.status_id    
+    priority_id : Number(req.body.priority),
+    creator_id : Number(req.body.created_By),
+    assigned_to_id : Number(req.body.assigned_To),
+    status_id : Number(req.body.status)
   }, 
     { where : { id : id }}
   )

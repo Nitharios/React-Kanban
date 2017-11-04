@@ -8,10 +8,10 @@ class Cards extends Component {
     super();
     this.state = {
       title : '',
-      priority : 1,
-      status : 1,
-      created_By : 1,
-      assigned_To : 1
+      priority : '',
+      status : '',
+      created_By : '',
+      assigned_To : ''
     }
 
     this.toggleHidden = this.toggleHidden.bind(this); 
@@ -23,8 +23,15 @@ class Cards extends Component {
     console.log(e.target);
   }
 
-  toggleEdit(cardID) {
-    this.props.makeCardEditable(cardID);
+  toggleEdit(card) {
+    this.props.makeCardEditable(card.id);
+    this.setState({
+      title : card.title,
+      priority : card.priority.id,
+      status : card.status.id,
+      created_By : card.creator.id,
+      assigned_To : card.dev.id
+    })
   }
 
   handleChange(e) {
@@ -68,7 +75,7 @@ class Cards extends Component {
                 status = { card.status.name }
                 created_By = { card.creator.name }
                 assigned_To = { card.dev.name }
-                toggleEdit = { this.toggleEdit.bind(this, card.id) }
+                toggleEdit = { this.toggleEdit.bind(this, card) }
                 isEditing = { card.isEditing }
                 editCard = { this.props.editCard }
                 deleteCard = { this.props.deleteCard }
