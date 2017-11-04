@@ -1,3 +1,19 @@
 body {
   background-color: #FFFFFF;
 }
+
+div {
+  border: 1px solid black;
+}
+
+#columns-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  width: 100%;
+
+  .column-component {
+    width: 30%;
+  }
+}
