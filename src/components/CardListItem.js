@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ id, title, priority_Id, priority, status_Id, status, created_By, assigned_To, toggleEdit, isEditing, editCard, deleteCard, handleChange, handleSubmit }) => {  
+export default ({ id, title, priority_id, priority, status_id, status, creator_id, created_by, dev_id,  assigned_to, toggleEdit, isEditing, editCard, deleteCard, handleChange, handleSubmit }) => {  
 
   function removeCard() {
     deleteCard(id);
@@ -13,8 +13,8 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
           <div>{ title }</div>
           <div>{ priority }</div>
           <div>{ status }</div>
-          <div>{ created_By }</div>
-          <div>{ assigned_To }</div>
+          <div>{ created_by }</div>
+          <div>{ assigned_to }</div>
           <input type="submit" value="EDIT" onClick={ toggleEdit } />
         </div>
       }
@@ -34,7 +34,7 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
                 className="addInput"
                 name="priority"
                 onChange={ handleChange }
-                defaultValue={ priority_Id }>
+                defaultValue={ priority_id }>
                 <option value="1">High</option>
                 <option value="2">Medium</option>
                 <option value="3">Low</option>
@@ -46,7 +46,7 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
                 className="addInput"
                 name="status"
                 onChange={ handleChange }
-                defaultValue={ status_Id }>
+                defaultValue={ status_id }>
                 <option value="1">In Queue</option>
                 <option value="2">In Progress</option>
                 <option value="3">Done</option>
@@ -55,16 +55,16 @@ export default ({ id, title, priority_Id, priority, status_Id, status, created_B
             <div>
               <input
                 className="addInput"
-                name="created_By"
+                name="created_by"
                 onChange={ handleChange }
-                defaultValue={ created_By} />
+                defaultValue={ creator_id } />
             </div>
             <div>
               <input
                 className="addInput"
-                name="assigned_To"
+                name="assigned_to"
                 onChange={ handleChange }
-                defaultValue={ assigned_To } />
+                defaultValue={ dev_id } />
             </div>    
               <input type="submit"  value="UPDATE" />
             </form>

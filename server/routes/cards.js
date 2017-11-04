@@ -8,7 +8,6 @@ const Status = db.status;
 const router = express.Router();
 
 // this is an SPA so views will be built in parts
-
 // get to cards will return all cards in database with their associated details
 router.route('/')
 .get((req, res) => {
@@ -33,9 +32,9 @@ router.route('/')
   return Card.create({
     title : req.body.title,
     priority_id : Number(req.body.priority),
+    status_id : Number(req.body.status),
     creator_id : Number(req.body.created_by),
-    assigned_to_id : Number(req.body.assigned_to),
-    status_id : Number(req.body.status)
+    assigned_to_id : Number(req.body.assigned_to)
   })
   .then(newCard => {
     console.log('created a new card');
@@ -65,9 +64,9 @@ router.route('/:id')
   .update({ 
     title : req.body.title,
     priority_id : Number(req.body.priority),
-    creator_id : Number(req.body.created_By),
-    assigned_to_id : Number(req.body.assigned_To),
-    status_id : Number(req.body.status)
+    status_id : Number(req.body.status),
+    creator_id : Number(req.body.created_by),
+    assigned_to_id : Number(req.body.assigned_to)
   }, 
   { 
     where : { id : id },

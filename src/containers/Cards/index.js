@@ -10,8 +10,8 @@ class Cards extends Component {
       title : '',
       priority : '',
       status : '',
-      created_By : '',
-      assigned_To : ''
+      created_by : '',
+      assigned_to : ''
     };
 
     this.toggleHidden = this.toggleHidden.bind(this); 
@@ -29,8 +29,8 @@ class Cards extends Component {
       title : card.title,
       priority : card.priority.id,
       status : card.status.id,
-      created_By : card.creator.id,
-      assigned_To : card.dev.id
+      created_by : card.creator.id,
+      assigned_to : card.dev.id
     });
   }
 
@@ -51,8 +51,8 @@ class Cards extends Component {
       title : this.state.title,
       priority : this.state.priority,
       status : this.state.status,
-      created_By : this.state.created_By,
-      assigned_To : this.state.assigned_To
+      created_by : this.state.created_by,
+      assigned_to : this.state.assigned_to
     });
   }
 
@@ -69,12 +69,14 @@ class Cards extends Component {
               <CardListItem 
                 id = { card.id }
                 title = { card.title }
-                priority_Id = { card.priority.id }
+                priority_id = { card.priority.id }
                 priority = { card.priority.name }
-                status_Id = { card.status.id }
+                status_id = { card.status.id }
                 status = { card.status.name }
-                created_By = { card.creator.name }
-                assigned_To = { card.dev.name }
+                creator_id = { card.creator.id }
+                created_by = { card.creator.name }
+                dev_id = { card.dev.id }
+                assigned_to = { card.dev.name }
                 toggleEdit = { this.toggleEdit.bind(this, card) }
                 isEditing = { card.isEditing }
                 editCard = { this.props.editCard }
