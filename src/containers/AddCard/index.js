@@ -8,10 +8,10 @@ class AddCardForm extends Component {
 
     this.state = {
       title : '',
-      priority : 1,
+      priority : '',
       status : 1,
-      created_By : 1,
-      assigned_To : 1
+      created_by : '',
+      assigned_to : ''
     }
   }
 
@@ -30,8 +30,9 @@ class AddCardForm extends Component {
     this.props.addCard({
       title : this.state.title,
       priority : this.state.priority,
-      created_By : this.state.created_By,
-      assigned_To : this.state.assigned_To
+      status : this.state.status,
+      created_by : this.state.created_by,
+      assigned_to : this.state.assigned_to
     })
   }
 
@@ -57,16 +58,16 @@ class AddCardForm extends Component {
           </select>
           <input
             className="addInput"
-            name="created_By"
+            name="created_by"
             placeholder="Created by..."
             onChange={ this.handleChange.bind(this) }
-            value={ this.state.created_By} />
+            value={ this.state.created_by} />
           <input
             className="addInput"
-            name="assigned_To"
+            name="assigned_to"
             placeholder="Assigned to..."
             onChange={ this.handleChange.bind(this) }
-            value={ this.state.assigned_To } />
+            value={ this.state.assigned_to } />
           <input
             type="submit"
             value="Submit Task" />

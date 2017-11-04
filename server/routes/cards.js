@@ -34,17 +34,17 @@ router.route('/')
   return Card
   .create({
     title : req.body.title,
-    priority_id : Number(req.body.priority) || 1,
-    creator_id : Number(req.body.created_By) || 1,
-    assigned_to_id : Number(req.body.assigned_To) || 1,
-    status_id : Number(req.body.status_id) || 1
+    priority_id : Number(req.body.priority),
+    creator_id : Number(req.body.created_by),
+    assigned_to_id : Number(req.body.assigned_to),
+    status_id : Number(req.body.status)
   })
   .then(response => {
     console.log('created a new card');
     res.json(success.win);
   })
   .catch(err => {
-    console.log(success.fail);
+    console.log(err);
     res.json(success.fail);
   });
 });
