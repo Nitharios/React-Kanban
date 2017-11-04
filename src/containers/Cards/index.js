@@ -62,7 +62,7 @@ class Cards extends Component {
 
   render() {    
     return(
-      <div className="cards-wrapper">
+      <div id="columns-wrapper">
         <ColumnComponent
           status_id="1"
           status_name="in-queue"
@@ -82,7 +82,7 @@ class Cards extends Component {
           deleteCard={ this.props.deleteCard }
           handleChange={ this.handleChange }
           handleSubmit={ this.handleSubmit} />
-          
+
         <ColumnComponent
           status_id="3"
           status_name="done"

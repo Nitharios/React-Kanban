@@ -3,7 +3,7 @@ import CardListItem from './CardListItem';
 
 export default ({ status_id, status_name, cards, toggleEdit, editCard, deleteCard, handleChange, handleSubmit }) => {
   return(
-    <div className={ status_name }>
+    <div  id={ status_name } className="column-component">
       { cards
         .filter(card => {
           return card.status.id === Number(status_id);
