@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards, makeCardEditable, editCard, deleteCard } from '../../actions/CardActions';
-import CardListItem from '../../components/CardListItem';
+import ColumnComponent from '../../components/ColumnComponent';
 
 class Cards extends Component {
   constructor() {
@@ -63,96 +63,35 @@ class Cards extends Component {
   render() {    
     return(
       <div className="cards-wrapper">
-        <div className="in-queue">
-          { this.props.cards
-            .filter(card => {
-              return card.status.id === 1
-            })
-            .map((card, idx) => {
-              return(
-                <CardListItem 
-                  id = { card.id }
-                  title = { card.title }
-                  priority_id = { card.priority.id }
-                  priority = { card.priority.name }
-                  status_id = { card.status.id }
-                  status = { card.status.name }
-                  creator_id = { card.creator.id }
-                  created_by = { card.creator.name }
-                  dev_id = { card.dev.id }
-                  assigned_to = { card.dev.name }
-                  toggleEdit = { this.toggleEdit.bind(this, card) }
-                  isEditing = { card.isEditing }
-                  editCard = { this.props.editCard }
-                  deleteCard = { this.props.deleteCard }
-                  handleChange = { this.handleChange }
-                  handleSubmit = { this.handleSubmit }
-                  key = { idx}
-                />
-              )
-            })
-          }
-        </div>
-        <div className="in-progress">
-          { this.props.cards
-            .filter(card => {
-              return card.status.id === 2
-            })
-            .map((card, idx) => {
-              return(
-                <CardListItem 
-                  id = { card.id }
-                  title = { card.title }
-                  priority_id = { card.priority.id }
-                  priority = { card.priority.name }
-                  status_id = { card.status.id }
-                  status = { card.status.name }
-                  creator_id = { card.creator.id }
-                  created_by = { card.creator.name }
-                  dev_id = { card.dev.id }
-                  assigned_to = { card.dev.name }
-                  toggleEdit = { this.toggleEdit.bind(this, card) }
-                  isEditing = { card.isEditing }
-                  editCard = { this.props.editCard }
-                  deleteCard = { this.props.deleteCard }
-                  handleChange = { this.handleChange }
-                  handleSubmit = { this.handleSubmit }
-                  key = { idx}
-                />
-              )
-            })
-          }
-        </div>
-        <div className="done">
-          { this.props.cards
-            .filter(card => {
-              return card.status.id === 3
-            })
-            .map((card, idx) => {
-              return(
-                <CardListItem 
-                  id = { card.id }
-                  title = { card.title }
-                  priority_id = { card.priority.id }
-                  priority = { card.priority.name }
-                  status_id = { card.status.id }
-                  status = { card.status.name }
-                  creator_id = { card.creator.id }
-                  created_by = { card.creator.name }
-                  dev_id = { card.dev.id }
-                  assigned_to = { card.dev.name }
-                  toggleEdit = { this.toggleEdit.bind(this, card) }
-                  isEditing = { card.isEditing }
-                  editCard = { this.props.editCard }
-                  deleteCard = { this.props.deleteCard }
-                  handleChange = { this.handleChange }
-                  handleSubmit = { this.handleSubmit }
-                  key = { idx}
-                />
-              )
-            })
-          }
-        </div>
+        <ColumnComponent
+          status_id="1"
+          status_name="in-queue"
+          cards={ this.props.cards }
+          toggleEdit={ this.toggleEdit.bind(this) }
+          editCard={ this.props.editCard }
+          deleteCard={ this.props.deleteCard }
+          handleChange={ this.handleChange }
+          handleSubmit={ this.handleSubmit} />
+
+        <ColumnComponent
+          status_id="2"
+          status_name="in-progress"
+          cards={ this.props.cards }
+          toggleEdit={ this.toggleEdit.bind(this) }
+          editCard={ this.props.editCard }
+          deleteCard={ this.props.deleteCard }
+          handleChange={ this.handleChange }
+          handleSubmit={ this.handleSubmit} />
+          
+        <ColumnComponent
+          status_id="3"
+          status_name="done"
+          cards={ this.props.cards }
+          toggleEdit={ this.toggleEdit.bind(this) }
+          editCard={ this.props.editCard }
+          deleteCard={ this.props.deleteCard }
+          handleChange={ this.handleChange }
+          handleSubmit={ this.handleSubmit} />
       </div>
     )
   };
