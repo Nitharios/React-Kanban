@@ -31,7 +31,9 @@ class Cards extends Component {
               <CardListItem 
                 id = { card.id }
                 title = { card.title }
+                priority_Id = { card.priority.id }
                 priority = { card.priority.name }
+                status_Id = { card.status.id }
                 status = { card.status.name }
                 created_By = { card.creator.name }
                 assigned_To = { card.dev.name }
