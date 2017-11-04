@@ -1,4 +1,4 @@
-import { LOAD_CARDS, ADD_CARD, EDITING, DEL_CARD } from '../actions/CardActions';
+import { LOAD_CARDS, ADD_CARD, EDITING, EDIT_CARD, DEL_CARD } from '../actions/CardActions';
 
 const initialState = [];
 
@@ -22,6 +22,23 @@ export default (state = initialState, action) => {
         return card;
       });
 
+    case EDIT_CARD:
+      const updatedCard = action.updatedCard;
+
+      return state.map(card => {
+        if (card.id === action.updatedCard.id) {
+          return Object.assign({}, card, {
+            title : updatedCard.title,
+            priority : updatedCard.priority,
+            status : updatedCard.status,
+            created_By : updatedCard.created_By,
+            assigned_To : updatedCard.assigned_To
+          })
+        }
+
+        return card;
+      });
+
     case DEL_CARD:
       return state.filter(card => {
         return card.id !== action.id
@@ -31,18 +48,3 @@ export default (state = initialState, action) => {
       return state;
   }
 };
-
-// function updateCard(state, action) {
-//   let arr = [];
-
-//   for (let i = 0; i < state.length; i++) {
-//     arr = arr.concat(state[i]);
-
-//     if (arr[i].id === action.cardID) {
-//       arr[i].isEditing = true;
-//     }
-//   }
-
-//   console.log('update', arr);
-//   return state;
-// }
