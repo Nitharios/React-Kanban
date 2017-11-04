@@ -62,33 +62,98 @@ class Cards extends Component {
 
   render() {    
     return(
-      <div className="App">
-        { this.props.cards
-          .map((card, idx) => {
-            return(
-              <CardListItem 
-                id = { card.id }
-                title = { card.title }
-                priority_id = { card.priority.id }
-                priority = { card.priority.name }
-                status_id = { card.status.id }
-                status = { card.status.name }
-                creator_id = { card.creator.id }
-                created_by = { card.creator.name }
-                dev_id = { card.dev.id }
-                assigned_to = { card.dev.name }
-                toggleEdit = { this.toggleEdit.bind(this, card) }
-                isEditing = { card.isEditing }
-                editCard = { this.props.editCard }
-                deleteCard = { this.props.deleteCard }
-                handleChange = { this.handleChange }
-                handleSubmit = { this.handleSubmit }
-                key = { idx}
-              />
-            )
-          })
-        }
-     </div> 
+      <div className="cards-wrapper">
+        <div className="in-queue">
+          { this.props.cards
+            .filter(card => {
+              return card.status.id === 1
+            })
+            .map((card, idx) => {
+              return(
+                <CardListItem 
+                  id = { card.id }
+                  title = { card.title }
+                  priority_id = { card.priority.id }
+                  priority = { card.priority.name }
+                  status_id = { card.status.id }
+                  status = { card.status.name }
+                  creator_id = { card.creator.id }
+                  created_by = { card.creator.name }
+                  dev_id = { card.dev.id }
+                  assigned_to = { card.dev.name }
+                  toggleEdit = { this.toggleEdit.bind(this, card) }
+                  isEditing = { card.isEditing }
+                  editCard = { this.props.editCard }
+                  deleteCard = { this.props.deleteCard }
+                  handleChange = { this.handleChange }
+                  handleSubmit = { this.handleSubmit }
+                  key = { idx}
+                />
+              )
+            })
+          }
+        </div>
+        <div className="in-progress">
+          { this.props.cards
+            .filter(card => {
+              return card.status.id === 2
+            })
+            .map((card, idx) => {
+              return(
+                <CardListItem 
+                  id = { card.id }
+                  title = { card.title }
+                  priority_id = { card.priority.id }
+                  priority = { card.priority.name }
+                  status_id = { card.status.id }
+                  status = { card.status.name }
+                  creator_id = { card.creator.id }
+                  created_by = { card.creator.name }
+                  dev_id = { card.dev.id }
+                  assigned_to = { card.dev.name }
+                  toggleEdit = { this.toggleEdit.bind(this, card) }
+                  isEditing = { card.isEditing }
+                  editCard = { this.props.editCard }
+                  deleteCard = { this.props.deleteCard }
+                  handleChange = { this.handleChange }
+                  handleSubmit = { this.handleSubmit }
+                  key = { idx}
+                />
+              )
+            })
+          }
+        </div>
+        <div className="done">
+          { this.props.cards
+            .filter(card => {
+              return card.status.id === 3
+            })
+            .map((card, idx) => {
+              return(
+                <CardListItem 
+                  id = { card.id }
+                  title = { card.title }
+                  priority_id = { card.priority.id }
+                  priority = { card.priority.name }
+                  status_id = { card.status.id }
+                  status = { card.status.name }
+                  creator_id = { card.creator.id }
+                  created_by = { card.creator.name }
+                  dev_id = { card.dev.id }
+                  assigned_to = { card.dev.name }
+                  toggleEdit = { this.toggleEdit.bind(this, card) }
+                  isEditing = { card.isEditing }
+                  editCard = { this.props.editCard }
+                  deleteCard = { this.props.deleteCard }
+                  handleChange = { this.handleChange }
+                  handleSubmit = { this.handleSubmit }
+                  key = { idx}
+                />
+              )
+            })
+          }
+        </div>
+      </div>
     )
   };
 }
