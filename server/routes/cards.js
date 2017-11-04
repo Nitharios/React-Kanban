@@ -22,7 +22,6 @@ router.route('/')
   })
   .then((cardList => {
     console.log('returned array of cards');
-    
     return res.json(cardList);
   }));
 })

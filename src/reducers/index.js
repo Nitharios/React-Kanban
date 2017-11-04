@@ -4,4 +4,4 @@ import data from './CardReducers';
 
 export default combineReducers({
   data
-})
+});

@@ -12,7 +12,7 @@ class EditCard extends Component {
       status : '',
       created_By : 1,
       assigned_To : 1
-    }
+    };
   }
 
   handleChange(e) {
@@ -22,7 +22,7 @@ class EditCard extends Component {
 
     this.setState({
       [name] : value
-    })
+    });
   }
 
   handleSubmit(e) {
@@ -32,7 +32,7 @@ class EditCard extends Component {
       priority : this.state.priority,
       created_By : this.state.created_By,
       assigned_To : this.state.assigned_To
-    })
+    });
   }
 
   render() {
