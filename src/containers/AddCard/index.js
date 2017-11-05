@@ -49,13 +49,11 @@ class AddCardForm extends Component {
       <div id="addCardForm">
         <form onSubmit={ this.handleSubmit.bind(this) }>
           <input
-            className="addInput"
             name="title"
             placeholder="title"
             onChange={ this.handleChange.bind(this) }
             value={ this.state.title } />
           <select
-            className="addInput"
             name="priority"
             defaultValue={ this.state.priority }
             onChange={ this.handleChange.bind(this) }>
@@ -65,13 +63,11 @@ class AddCardForm extends Component {
             <option value="4">Blocker</option>
           </select>
           <input
-            className="addInput"
             name="created_by"
             placeholder="Created by..."
             onChange={ this.handleChange.bind(this) }
             value={ this.state.created_by} />
           <input
-            className="addInput"
             name="assigned_to"
             placeholder="Assigned to..."
             onChange={ this.handleChange.bind(this) }

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/CardActions';
+import { loadUsers } from '../../actions/UserActions';
 import AddCardForm from '../AddCard';
 import ColumnComponent from '../../components/ColumnComponent';
 
 class App extends Component {
   componentDidMount() {
     this.props.loadCards();
+    this.props.loadUsers();
   }
 
   render() {
@@ -37,7 +39,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    cards : state.data
+    cards : state.cards,
+    users : state.users
   }
 }
 
@@ -45,6 +48,10 @@ const mapDispatchToProps = dispatch => {
   return {
     loadCards : cards => {
       dispatch(loadCards(cards));
+    },
+
+    loadUsers : users => {
+      dispatch(loadUsers(users));
     }
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
+import SelectComponent from './SelectComponent';
 
-export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit }) => {  
+export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users }) => {    
 
   const priority = card.priority;
   const status = card.status;
@@ -29,14 +30,12 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
           <form onSubmit={ (e) => handleSubmit(card.id, e) }>
             <div>
               <input
-                className="addInput"
                 name="title"
                 onChange={ handleChange }
                 defaultValue={ card.title } />
             </div>
             <div>
               <select
-                className="addInput"
                 name="priority"
                 onChange={ handleChange }
                 defaultValue={ priority.id }>
@@ -48,7 +47,6 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
             </div>
             <div>
               <select
-                className="addInput"
                 name="status"
                 onChange={ handleChange }
                 defaultValue={ status.id }>
@@ -59,19 +57,17 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
             </div>
             <div>
               <input
-                className="addInput"
                 name="created_by"
                 onChange={ handleChange }
                 defaultValue={ creator.id } />
             </div>
-            <div>
-              <input
-                className="addInput"
-                name="assigned_to"
-                onChange={ handleChange }
-                defaultValue={ dev.id } />
-            </div>    
-              <input type="submit"  value="UPDATE" />
+            <SelectComponent
+              optionsArr={ users }
+              name="assigned_to"
+              onChange={ handleChange }
+              defaultValue={ dev.id }
+            />
+            <input type="submit"  value="UPDATE" />
           </form>
 
           <button type="submit" onClick={ toggleEdit.bind(this, card) }>

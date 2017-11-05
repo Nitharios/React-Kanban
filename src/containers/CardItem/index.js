@@ -13,7 +13,7 @@ class CardItem extends Component {
       created_by : '',
       assigned_to : ''
     };
-
+    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -51,7 +51,7 @@ class CardItem extends Component {
     });
   }
 
-  render() {  
+  render() {
     return(
       <div>
         <CardListItem 
@@ -61,6 +61,7 @@ class CardItem extends Component {
           deleteCard = { this.props.deleteCard }
           handleChange = { this.handleChange }
           handleSubmit = { this.handleSubmit }
+          users = { this.props.users }
         />
       </div>
     );
@@ -68,6 +69,12 @@ class CardItem extends Component {
 }
 
 // state carries the information on data which is defined in reducers index
+const mapStateToProps = state => {
+  return {
+    users : state.users
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     makeCardEditable : cardID => {
@@ -85,6 +92,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CardItem);

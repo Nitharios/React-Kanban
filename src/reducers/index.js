@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 // cards is an array
-import data from './CardReducers';
+import cards from './CardReducers';
+import users from './UserReducers';
 
 export default combineReducers({
-  data
+  cards,
+  users
 });
