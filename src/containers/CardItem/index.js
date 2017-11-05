@@ -53,7 +53,7 @@ class CardItem extends Component {
 
   render() {
     return(
-      <div className="card-component">
+      <div className="card-wrapper">
         <CardComponent 
           card = { this.props.card }
           toggleEdit = { this.toggleEdit.bind(this) }

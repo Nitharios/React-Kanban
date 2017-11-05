@@ -1,27 +1,82 @@
+// theme colors
+$bg-color: #FFFFFF;
+$primary-color: #6699CC;
+$secondary-color: #FFFFFF;
+$accent-color: #FFFFFF;
+
+// breakpoints
+$sm-size: 400px;
+$sm-med: 600px;
+$med-lg: 960px;
+$lg-size: 1080px;
+
+// mixins
 @mixin flex-style($flow, $justify) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+
   flex-flow: $flow;
   justify-content: $justify;
 }
 
+@mixin box-style($style) {
+  -webkit-box-sizing: $style;
+  -moz-box-sizing: $style;
+  box-sizing: $style; 
+}
+
+/* STYLE SETTINGS  */
+
+html {
+  @include box-style(border-box); 
+}
+
+*, *:before, *:after {
+  @include box-style(inherit)
+}
+
 body {
-  background-color: #FFFFFF;
+  margin: 0;
+  background-color: $bg-color;
+  font-family: sans-serif;
 }
 
 div {
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 #column-wrapper {
-  @include flex-style(row wrap, space-around);
-
+  @include flex-style(row wrap, center);
   width: 100%;
 
   .column-component {
     width: 300px;
+    margin: 10px;
+ 
+    .sub-header {
+      margin: 20px 20px 0px 20px;
+      padding: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-    .card-component {
-      margin: 20px;
+    .card-wrapper {
+      margin: 0px 20px 20px 20px;
+      border: 1px solid black;
+      font-size: 20px;
+
+      .card-component {
+        width: 300px;
+
+        div {
+          padding: 5px;
+        }
+      }
     }
   }
 }
+
+/* SPECIAL SETTINGS  */

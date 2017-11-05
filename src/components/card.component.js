@@ -13,12 +13,12 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
   }
 
   return(
-    <div className="card">
+    <div className="card-component">
       { !card.isEditing &&
         <div>
           <div>{ card.title }</div>
           <div>{ priority.name }</div>
-          <div>{ status.name }</div>
+          {/*<div>{ status.name }</div>*/}
           <div>{ creator.name }</div>
           <div>{ dev.name }</div>
           <input type="submit" value="EDIT" onClick={ toggleEdit.bind(this, card) } />

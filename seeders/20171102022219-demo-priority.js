@@ -15,6 +15,11 @@ module.exports = {
 
     return queryInterface.bulkInsert('priorities', [
       {
+        name : 'blocker',
+        createdAt : 'now()',
+        updatedAt : 'now()'
+      },
+      {
         name : 'high',
         createdAt : 'now()',
         updatedAt : 'now()'
@@ -28,13 +33,7 @@ module.exports = {
         name : 'low',
         createdAt : 'now()',
         updatedAt : 'now()'
-      },
-      {
-        name : 'blocker',
-        createdAt : 'now()',
-        updatedAt : 'now()'
       }
-
     ], {});
   },
 

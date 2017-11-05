@@ -9,7 +9,7 @@ class AddCard extends Component {
 
     this.state = {
       title : '',
-      priority : 1,
+      priority : 2,
       status : 1,
       created_by : 1,
       assigned_to : 1
@@ -42,7 +42,7 @@ class AddCard extends Component {
     // resets input fields
     this.setState({
       title : '',
-      priority : 1,
+      priority : 2,
       status : 1,
       created_by : 1,
       assigned_to : 1

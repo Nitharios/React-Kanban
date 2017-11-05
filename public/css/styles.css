@@ -1,15 +1,43 @@
-body {
-  background-color: #FFFFFF; }
+/* STYLE SETTINGS  */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-div {
-  border: 1px solid black; }
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+  font-family: sans-serif; }
 
 #column-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%; }
   #column-wrapper .column-component {
-    width: 300px; }
-    #column-wrapper .column-component .card-component {
-      margin: 20px; }
+    width: 300px;
+    margin: 10px; }
+    #column-wrapper .column-component .sub-header {
+      margin: 20px 20px 0px 20px;
+      padding: 5px;
+      font-size: 20px;
+      font-weight: bold; }
+    #column-wrapper .column-component .card-wrapper {
+      margin: 0px 20px 20px 20px;
+      border: 1px solid black;
+      font-size: 20px; }
+      #column-wrapper .column-component .card-wrapper .card-component {
+        width: 300px; }
+        #column-wrapper .column-component .card-wrapper .card-component div {
+          padding: 5px; }
+
+/* SPECIAL SETTINGS  */

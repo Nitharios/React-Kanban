@@ -25,17 +25,17 @@ class App extends Component {
           <ColumnComponent
             cards={ this.props.cards }
             status_id="1"
-            status_name="in-queue" />
+            status_name="In-Queue" />
 
           <ColumnComponent
             cards={ this.props.cards }
             status_id="2"
-            status_name="in-progress" />
+            status_name="In-Progress" />
 
           <ColumnComponent
             cards={ this.props.cards }
             status_id="3"
-            status_name="done" />
+            status_name="Complete" />
 
         </div>
      </div> 
