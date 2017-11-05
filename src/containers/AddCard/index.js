@@ -51,37 +51,39 @@ class AddCard extends Component {
 
   render() {
     return(
-      <div id="addCardForm">
-        <form onSubmit={ this.handleSubmit }>
-          <input
-            name="title"
-            placeholder="title"
-            onChange={ this.handleChange }
-            value={ this.state.title } />
+      <div id="addCardForm" className="card-item">
+        <div className="card-component">
+          <form onSubmit={ this.handleSubmit }>
+            <input
+              name="title"
+              placeholder="title"
+              onChange={ this.handleChange }
+              value={ this.state.title } />
 
-          <SelectComponent
-            optionsArr={ this.props.priorities }
-            name="priority"
-            onChange={ this.handleChange }
-            value={ this.state.priority }  />
-          
-          <SelectComponent
-            optionsArr={ this.props.users }
-            name="created_by"
-            onChange={ this.handleChange }
-            value={ this.state.created_by } />
-          
-          <SelectComponent
-            optionsArr={ this.props.users }
-            name="assigned_to"
-            onChange={ this.handleChange }
-            value={ this.state.assigned_to } />
+            <SelectComponent
+              optionsArr={ this.props.priorities }
+              name="priority"
+              onChange={ this.handleChange }
+              value={ this.state.priority }  />
+            
+            <SelectComponent
+              optionsArr={ this.props.users }
+              name="created_by"
+              onChange={ this.handleChange }
+              value={ this.state.created_by } />
+            
+            <SelectComponent
+              optionsArr={ this.props.users }
+              name="assigned_to"
+              onChange={ this.handleChange }
+              value={ this.state.assigned_to } />
 
-          <input
-            type="submit"
-            value="Submit Task" />
+            <input
+              type="submit"
+              value="Submit Task" />
 
-        </form>
+          </form>
+        </div>
       </div>
     )
   }

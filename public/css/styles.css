@@ -57,22 +57,32 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: flex-start;
   width: 100%; }
-  #column-wrapper #In-Queue, #column-wrapper #In-Progress, #column-wrapper #Complete {
-    width: 300px;
-    margin: 5px;
-    border: 1px solid black; }
-    #column-wrapper #In-Queue .sub-header, #column-wrapper #In-Progress .sub-header, #column-wrapper #Complete .sub-header {
+  #column-wrapper .column-component {
+    border: 1px solid black;
+    margin: 5px; }
+    #column-wrapper .column-component .sub-header {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
       margin: 5px 10px 0px 10px;
       padding: 5px;
       font-weight: bold; }
-    #column-wrapper #In-Queue .card-wrapper, #column-wrapper #In-Progress .card-wrapper, #column-wrapper #Complete .card-wrapper {
-      margin: 0px 10px 20px 10px;
-      border: 1px solid black; }
-      #column-wrapper #In-Queue .card-wrapper .card-component, #column-wrapper #In-Progress .card-wrapper .card-component, #column-wrapper #Complete .card-wrapper .card-component {
-        width: 300px; }
-        #column-wrapper #In-Queue .card-wrapper .card-component div, #column-wrapper #In-Progress .card-wrapper .card-component div, #column-wrapper #Complete .card-wrapper .card-component div {
-          padding: 5px; }
+      #column-wrapper .column-component .sub-header div {
+        align-self: flex-end; }
+      #column-wrapper .column-component .sub-header #sub-option {
+        font-size: 15px; }
+    #column-wrapper .column-component .card-item {
+      border: 1px solid black;
+      margin: 0px 10px 10px 10px; }
+      #column-wrapper .column-component .card-item .card-component {
+        width: 250px;
+        margin: 10px; }
 
 /* SPECIAL SETTINGS  */
 #nav-spacer {

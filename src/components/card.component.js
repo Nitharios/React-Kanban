@@ -59,8 +59,8 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
               onChange={ handleChange }
               defaultValue={ dev.id } />
 
-            <input type="submit"  value="UPDATE" />
             <input type="button" value="UNDO" onClick={ toggleEdit.bind(this, card) } />
+            <input type="submit"  value="UPDATE" />
             <input type="button" value="DELETE" onClick={ removeCard } />
           </form>
         </div>

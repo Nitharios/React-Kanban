@@ -28,6 +28,10 @@ $lg-size: 1080px;
   box-sizing: $style; 
 }
 
+@mixin border-style() {
+  border: 1px solid black;
+}
+
 /* STYLE SETTINGS  */
 
 html {
@@ -45,17 +49,9 @@ body {
   font-size: 20px;
 }
 
-div {
-  // border: 1px solid black;
-}
-
 #nav-bar {
   @include flex-style(row nowrap, center);
   width: 100%;
-
-  div {
-    // border: 1px solid black;
-  }
 
   .nav-content {
     @include flex-style(row nowrap, flex-start);
@@ -76,7 +72,7 @@ div {
     }
 
     .options {
-      border: 1px solid black;
+      @include border-style();
       margin: 10px;
       width: 40px;
       height: 40px;
@@ -88,30 +84,36 @@ div {
 
 #column-wrapper {
   @include flex-style(row wrap, center);
+  align-items: flex-start;
   width: 100%;
 
-  #In-Queue, #In-Progress, #Complete {
-    width: 300px;
+  .column-component {
+    @include border-style();
     margin: 5px;
-    border: 1px solid black;
  
     .sub-header {
+      @include flex-style(row nowrap, space-between);
       margin: 5px 10px 0px 10px;
       padding: 5px;
       font-weight: bold;
+
+      div {
+        align-self: flex-end;
+      }
+
+      #sub-option {
+        font-size: 15px;
+      }
     }
 
-    .card-wrapper {
-      margin: 0px 10px 20px 10px;
-      border: 1px solid black;
-
+    .card-item {
+      @include border-style();
+      margin: 0px 10px 10px 10px;
+      
       .card-component {
-        width: 300px;
-
-        div {
-          padding: 5px;
-        }
-      }
+        width: 250px;
+        margin: 10px;
+      }      
     }
   }
 }

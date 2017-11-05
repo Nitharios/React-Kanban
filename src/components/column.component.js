@@ -1,11 +1,21 @@
 import React from 'react';
 import CardItem from '../containers/CardItem';
+import AddCard from '../containers/AddCard';
 
 export default ({ cards, status_id, status_name }) => {
 
   return(
     <div id={ status_name } className="column-component">
-      <div className="sub-header">{ status_name }</div>
+      <div className="sub-header">
+        <div>
+          { status_name }
+        </div>
+        <button id="sub-option">
+          +
+        </button>
+      </div>
+
+      <AddCard />
 
       { cards
         .filter(card => {

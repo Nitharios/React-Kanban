@@ -4,7 +4,6 @@ import { loadCards } from '../../actions/card.actions';
 import { loadUsers } from '../../actions/user.actions';
 import { loadPriorities } from '../../actions/priority.actions';
 import { loadStatuses } from '../../actions/status.actions';
-import AddCard from '../AddCard';
 import ColumnComponent from '../../components/column.component';
 
 class App extends Component {
@@ -18,8 +17,6 @@ class App extends Component {
   render() {
     return(
       <div id="app-container">
-        <AddCard />
-
         <div id="column-wrapper">
 
           <ColumnComponent
