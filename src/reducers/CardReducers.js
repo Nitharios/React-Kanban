@@ -33,8 +33,8 @@ export default (state = initialState, action) => {
             title : updatedCard.title,
             priority : updatedCard.priority,
             status : updatedCard.status,
-            created_By : updatedCard.created_By,
-            assigned_To : updatedCard.assigned_To,
+            creator : updatedCard.creator,
+            dev : updatedCard.dev,
             isEditing : false
           });
         }

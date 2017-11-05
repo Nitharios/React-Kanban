@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectComponent from './SelectComponent';
 
-export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users }) => {    
+export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users }) => {
 
   const priority = card.priority;
   const status = card.status;

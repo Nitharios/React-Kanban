@@ -58,7 +58,7 @@ export const makeCardEditable = cardID => {
 export const editCard = updatedCard => {
   return dispatch => {
     return axios.put(`${listOfCards}/${updatedCard.id}`, updatedCard)
-    .then(updatedCardDetails => {      
+    .then(updatedCardDetails => {
       dispatch({
         type : EDIT_CARD,
         updatedCard : updatedCardDetails.data

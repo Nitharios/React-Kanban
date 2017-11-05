@@ -72,7 +72,6 @@ router.route('/:id')
     returning : true
   })
   .then(updatedCard => {
-    console.log('edited a card');
     
     updatedCard[1][0].reload({
       include : [
@@ -83,6 +82,7 @@ router.route('/:id')
       ]
     })
     .then(updatedCardDetails => {
+      console.log('edited a card');
       res.json(updatedCardDetails);
     });
   })
