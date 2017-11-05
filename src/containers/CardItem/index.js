@@ -59,8 +59,8 @@ class CardItem extends Component {
           toggleEdit = { this.toggleEdit.bind(this) }
           editCard = { this.props.editCard }
           deleteCard = { this.props.deleteCard }
-          handleChange = { this.props.handleChange }
-          handleSubmit = { this.props.handleSubmit }
+          handleChange = { this.handleChange }
+          handleSubmit = { this.handleSubmit }
         />
       </div>
     );
