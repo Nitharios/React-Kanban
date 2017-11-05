@@ -4,10 +4,10 @@ body {
 div {
   border: 1px solid black; }
 
-#columns-wrapper {
+#app-container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   width: 100%; }
-  #columns-wrapper .column-component {
+  #app-container .column-component {
     width: 30%; }

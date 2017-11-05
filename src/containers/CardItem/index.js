@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeCardEditable, editCard, deleteCard } from '../../actions/card.actions';
-import CardListItem from '../../components/card.component';
+import CardComponent from '../../components/card.component';
 
 class CardItem extends Component {
   constructor(props) {
@@ -53,8 +53,8 @@ class CardItem extends Component {
 
   render() {
     return(
-      <div>
-        <CardListItem 
+      <div className="card-component">
+        <CardComponent 
           card = { this.props.card }
           toggleEdit = { this.toggleEdit.bind(this) }
           editCard = { this.props.editCard }
