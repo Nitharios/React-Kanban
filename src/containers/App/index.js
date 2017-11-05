@@ -18,24 +18,26 @@ class App extends Component {
   render() {
     return(
       <div id="app-container">
-
         <AddCard />
 
-        <ColumnComponent 
-          cards={ this.props.cards }
-          status_id="1"
-          status_name="in-queue" />
+        <div id="column-wrapper">
 
-        <ColumnComponent 
-          cards={ this.props.cards }
-          status_id="2"
-          status_name="in-progress" />
+          <ColumnComponent
+            cards={ this.props.cards }
+            status_id="1"
+            status_name="in-queue" />
 
-        <ColumnComponent 
-          cards={ this.props.cards }
-          status_id="3"
-          status_name="done" />
+          <ColumnComponent
+            cards={ this.props.cards }
+            status_id="2"
+            status_name="in-progress" />
 
+          <ColumnComponent
+            cards={ this.props.cards }
+            status_id="3"
+            status_name="done" />
+
+        </div>
      </div> 
     )
   };

@@ -1,3 +1,9 @@
+@mixin flex-style($flow, $justify) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $justify;
+}
+
 body {
   background-color: #FFFFFF;
 }
@@ -6,14 +12,16 @@ div {
   border: 1px solid black;
 }
 
-#app-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
+#column-wrapper {
+  @include flex-style(row wrap, space-around);
 
   width: 100%;
 
   .column-component {
-    width: 30%;
+    width: 300px;
+
+    .card-component {
+      margin: 20px;
+    }
   }
 }
