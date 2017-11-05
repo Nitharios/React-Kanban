@@ -2,35 +2,39 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadCards } from '../../actions/card.actions';
 import { loadUsers } from '../../actions/user.actions';
-import AddCardForm from '../AddCard';
+import { loadPriorities } from '../../actions/priority.actions';
+import { loadStatuses } from '../../actions/status.actions';
+import AddCard from '../AddCard';
 import ColumnComponent from '../../components/column.component';
 
 class App extends Component {
   componentDidMount() {
     this.props.loadCards();
     this.props.loadUsers();
+    this.props.loadPriorities();
+    this.props.loadStatuses();
   }
 
   render() {
     return(
       <div className="App">
 
-        <AddCardForm />
+        <AddCard />
+
         <ColumnComponent 
           cards={ this.props.cards }
           status_id="1"
-          status_name="in-queue"
-        />
+          status_name="in-queue" />
+
         <ColumnComponent 
           cards={ this.props.cards }
           status_id="2"
-          status_name="in-progress"
-        />
+          status_name="in-progress" />
+
         <ColumnComponent 
           cards={ this.props.cards }
           status_id="3"
-          status_name="done"
-        />
+          status_name="done" />
 
      </div> 
     )
@@ -40,7 +44,9 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     cards : state.cards,
-    users : state.users
+    users : state.users,
+    priorities : state.priorities,
+    statuses : state.statuses
   }
 }
 
@@ -52,6 +58,14 @@ const mapDispatchToProps = dispatch => {
 
     loadUsers : users => {
       dispatch(loadUsers(users));
+    },
+
+    loadPriorities : priorities => {
+      dispatch(loadPriorities(priorities));
+    },
+
+    loadStatuses : statuses => {
+      dispatch(loadStatuses(statuses));
     }
   }
 }

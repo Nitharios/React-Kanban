@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addCard } from '../../actions/card.actions';
+import SelectComponent from '../../components/select.component';
 
-class AddCardForm extends Component {
-  constructor(props) {
-    super(props);
+class AddCard extends Component {
+  constructor() {
+    super();
 
     this.state = {
       title : '',
       priority : 1,
       status : 1,
-      created_by : '',
-      assigned_to : ''
+      created_by : 1,
+      assigned_to : 1
     };
   }
 
@@ -35,6 +36,7 @@ class AddCardForm extends Component {
       assigned_to : this.state.assigned_to
     });
 
+    // resets input fields
     this.setState({
       title : '',
       priority : 1,
@@ -52,32 +54,40 @@ class AddCardForm extends Component {
             name="title"
             placeholder="title"
             onChange={ this.handleChange.bind(this) }
-            value={ this.state.title } />
-          <select
+            defaultValue={ this.state.title } />
+
+          <SelectComponent
+            optionsArr={ this.props.priorities }
             name="priority"
             defaultValue={ this.state.priority }
-            onChange={ this.handleChange.bind(this) }>
-            <option value="1">High</option>
-            <option value="2">Medium</option>
-            <option value="3">Low</option>
-            <option value="4">Blocker</option>
-          </select>
-          <input
+            onChange={ this.handleChange.bind(this) } />
+          
+          <SelectComponent
+            optionsArr={ this.props.users }
             name="created_by"
-            placeholder="Created by..."
-            onChange={ this.handleChange.bind(this) }
-            value={ this.state.created_by} />
-          <input
+            defaultValue={ this.state.created_by }
+            onChange={ this.handleChange.bind(this) } />
+          
+          <SelectComponent
+            optionsArr={ this.props.users }
             name="assigned_to"
-            placeholder="Assigned to..."
-            onChange={ this.handleChange.bind(this) }
-            value={ this.state.assigned_to } />
+            defaultValue={ this.state.assigned_to }
+            onChange={ this.handleChange.bind(this) } />
+
           <input
             type="submit"
             value="Submit Task" />
+
         </form>
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    users : state.users,
+    priorities : state.priorities
   }
 }
 
@@ -90,6 +100,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(AddCardForm);
+)(AddCard);

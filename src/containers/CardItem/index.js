@@ -62,6 +62,8 @@ class CardItem extends Component {
           handleChange = { this.handleChange }
           handleSubmit = { this.handleSubmit }
           users = { this.props.users }
+          priorities = { this.props.priorities }
+          statuses = { this.props.statuses }
         />
       </div>
     );
@@ -71,7 +73,9 @@ class CardItem extends Component {
 // state carries the information on data which is defined in reducers index
 const mapStateToProps = state => {
   return {
-    users : state.users
+    users : state.users,
+    priorities : state.priorities,
+    statuses : state.statuses
   }
 }
 

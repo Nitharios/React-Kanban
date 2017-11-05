@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectComponent from './select.component';
 
-export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users }) => {
+export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users, priorities, statuses }) => {
 
   const priority = card.priority;
   const status = card.status;
@@ -34,27 +34,19 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
                 onChange={ handleChange }
                 defaultValue={ card.title } />
             </div>
-            <div>
-              <select
-                name="priority"
-                onChange={ handleChange }
-                defaultValue={ priority.id }>
-                <option value="1">High</option>
-                <option value="2">Medium</option>
-                <option value="3">Low</option>
-                <option value="4">Blocker</option>
-              </select>
-            </div>
-            <div>
-              <select
-                name="status"
-                onChange={ handleChange }
-                defaultValue={ status.id }>
-                <option value="1">In Queue</option>
-                <option value="2">In Progress</option>
-                <option value="3">Done</option>
-              </select>            
-            </div>
+
+            <SelectComponent
+              optionsArr={ priorities }
+              name="priority"
+              onChange={ handleChange }
+              defaultValue={ priority.id } />
+
+            <SelectComponent
+              optionsArr={ statuses }
+              name="status"
+              onChange={ handleChange }
+              defaultValue={ status.id } />
+
             <SelectComponent
               optionsArr={ users }
               name="created_by"
@@ -65,14 +57,15 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
               optionsArr={ users }
               name="assigned_to"
               onChange={ handleChange }
-              defaultValue={ dev.id }
-            />
+              defaultValue={ dev.id } />
+
             <input type="submit"  value="UPDATE" />
           </form>
 
           <button type="submit" onClick={ toggleEdit.bind(this, card) }>
             UNDO
           </button>
+          
           <button type="submit" onClick={ removeCard }>
             DELETE
           </button>
