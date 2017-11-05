@@ -1,4 +1,4 @@
-import { LOAD_CARDS, ADD_CARD, EDITING, EDIT_CARD, DEL_CARD } from '../actions/CardActions';
+import { LOAD_CARDS, ADD_CARD, EDITING, EDIT_CARD, DEL_CARD } from '../actions/card.actions';
 
 const initialState = [];
 

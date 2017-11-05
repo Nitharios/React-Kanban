@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectComponent from './SelectComponent';
+import SelectComponent from './select.component';
 
 export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSubmit, users }) => {
 
@@ -55,12 +55,12 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
                 <option value="3">Done</option>
               </select>            
             </div>
-            <div>
-              <input
-                name="created_by"
-                onChange={ handleChange }
-                defaultValue={ creator.id } />
-            </div>
+            <SelectComponent
+              optionsArr={ users }
+              name="created_by"
+              onChange={ handleChange }
+              defaultValue={ creator.id } />
+
             <SelectComponent
               optionsArr={ users }
               name="assigned_to"

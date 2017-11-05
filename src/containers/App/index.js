@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadCards } from '../../actions/CardActions';
-import { loadUsers } from '../../actions/UserActions';
+import { loadCards } from '../../actions/card.actions';
+import { loadUsers } from '../../actions/user.actions';
 import AddCardForm from '../AddCard';
-import ColumnComponent from '../../components/ColumnComponent';
+import ColumnComponent from '../../components/column.component';
 
 class App extends Component {
   componentDidMount() {

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import cards from './CardReducers';
-import users from './UserReducers';
+import cards from './card.reducers';
+import users from './user.reducers';
 
 export default combineReducers({
   cards,
