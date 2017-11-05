@@ -58,20 +58,20 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   width: 100%; }
-  #column-wrapper .column-component {
+  #column-wrapper #In-Queue, #column-wrapper #In-Progress, #column-wrapper #Complete {
     width: 300px;
     margin: 5px;
     border: 1px solid black; }
-    #column-wrapper .column-component .sub-header {
+    #column-wrapper #In-Queue .sub-header, #column-wrapper #In-Progress .sub-header, #column-wrapper #Complete .sub-header {
       margin: 5px 10px 0px 10px;
       padding: 5px;
       font-weight: bold; }
-    #column-wrapper .column-component .card-wrapper {
+    #column-wrapper #In-Queue .card-wrapper, #column-wrapper #In-Progress .card-wrapper, #column-wrapper #Complete .card-wrapper {
       margin: 0px 10px 20px 10px;
       border: 1px solid black; }
-      #column-wrapper .column-component .card-wrapper .card-component {
+      #column-wrapper #In-Queue .card-wrapper .card-component, #column-wrapper #In-Progress .card-wrapper .card-component, #column-wrapper #Complete .card-wrapper .card-component {
         width: 300px; }
-        #column-wrapper .column-component .card-wrapper .card-component div {
+        #column-wrapper #In-Queue .card-wrapper .card-component div, #column-wrapper #In-Progress .card-wrapper .card-component div, #column-wrapper #Complete .card-wrapper .card-component div {
           padding: 5px; }
 
 /* SPECIAL SETTINGS  */

@@ -90,7 +90,7 @@ div {
   @include flex-style(row wrap, center);
   width: 100%;
 
-  .column-component {
+  #In-Queue, #In-Progress, #Complete {
     width: 300px;
     margin: 5px;
     border: 1px solid black;
