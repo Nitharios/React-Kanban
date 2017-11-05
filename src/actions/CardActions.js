@@ -11,7 +11,7 @@ export const DEL_CARD = 'DEL_CARD';
 export const ERROR = 'ERROR';
 
 export const loadCards = () => {
-  return dispatch => {    
+  return dispatch => {         
     return axios.get(listOfCards)
     .then(cards => {
       dispatch({

@@ -13,6 +13,7 @@ export default (state = initialState, action) => {
 
     case EDITING:
       return state.map(card => {
+        
         if (card.id === action.cardID) {
           return Object.assign({}, card, {
             isEditing : !card.isEditing
