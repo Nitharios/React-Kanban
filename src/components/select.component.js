@@ -1,11 +1,12 @@
 import React from 'react';
 
-export default({ optionsArr, name, onChange, defaultValue }) => {
+export default({ optionsArr, name, onChange, defaultValue, value }) => {
   return(
     <div className="selectComponent">
       <select
         name={ name }
         onChange={ onChange }
+        value={ value }
         defaultValue={ defaultValue } >
 
         { 

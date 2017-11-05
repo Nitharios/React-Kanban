@@ -14,6 +14,9 @@ class AddCard extends Component {
       created_by : 1,
       assigned_to : 1
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -41,38 +44,38 @@ class AddCard extends Component {
       title : '',
       priority : 1,
       status : 1,
-      created_by : '',
-      assigned_to : ''
+      created_by : 1,
+      assigned_to : 1
     });
   }
 
   render() {
     return(
       <div id="addCardForm">
-        <form onSubmit={ this.handleSubmit.bind(this) }>
+        <form onSubmit={ this.handleSubmit }>
           <input
             name="title"
             placeholder="title"
-            onChange={ this.handleChange.bind(this) }
-            defaultValue={ this.state.title } />
+            onChange={ this.handleChange }
+            value={ this.state.title } />
 
           <SelectComponent
             optionsArr={ this.props.priorities }
             name="priority"
-            defaultValue={ this.state.priority }
-            onChange={ this.handleChange.bind(this) } />
+            onChange={ this.handleChange }
+            value={ this.state.priority }  />
           
           <SelectComponent
             optionsArr={ this.props.users }
             name="created_by"
-            defaultValue={ this.state.created_by }
-            onChange={ this.handleChange.bind(this) } />
+            onChange={ this.handleChange }
+            value={ this.state.created_by } />
           
           <SelectComponent
             optionsArr={ this.props.users }
             name="assigned_to"
-            defaultValue={ this.state.assigned_to }
-            onChange={ this.handleChange.bind(this) } />
+            onChange={ this.handleChange }
+            value={ this.state.assigned_to } />
 
           <input
             type="submit"
