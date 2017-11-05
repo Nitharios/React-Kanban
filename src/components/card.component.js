@@ -63,8 +63,6 @@ export default ({ card, toggleEdit, editCard, deleteCard, handleChange, handleSu
             <input type="button" value="UNDO" onClick={ toggleEdit.bind(this, card) } />
             <input type="button" value="DELETE" onClick={ removeCard } />
           </form>
-
-          
         </div>
       }
     </div>

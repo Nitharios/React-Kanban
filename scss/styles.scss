@@ -42,10 +42,48 @@ body {
   margin: 0;
   background-color: $bg-color;
   font-family: sans-serif;
+  font-size: 20px;
 }
 
 div {
   // border: 1px solid black;
+}
+
+#nav-bar {
+  @include flex-style(row nowrap, center);
+  width: 100%;
+
+  div {
+    // border: 1px solid black;
+  }
+
+  .nav-content {
+    @include flex-style(row nowrap, flex-start);
+    width: 45%;
+
+    .nav-item {
+      align-self: center;
+      font-weight: bold;
+    }
+
+    #brand {
+      font-size: 30px;
+    }
+
+    #new-card {
+      line-height: 36px;
+      font-size: 30px;
+    }
+
+    .options {
+      border: 1px solid black;
+      margin: 10px;
+      width: 40px;
+      height: 40px;
+      line-height: 37px;
+      text-align: center;
+    }
+  }
 }
 
 #column-wrapper {
@@ -54,19 +92,18 @@ div {
 
   .column-component {
     width: 300px;
-    margin: 10px;
+    margin: 5px;
+    border: 1px solid black;
  
     .sub-header {
-      margin: 20px 20px 0px 20px;
+      margin: 5px 10px 0px 10px;
       padding: 5px;
-      font-size: 20px;
       font-weight: bold;
     }
 
     .card-wrapper {
-      margin: 0px 20px 20px 20px;
+      margin: 0px 10px 20px 10px;
       border: 1px solid black;
-      font-size: 20px;
 
       .card-component {
         width: 300px;
@@ -80,3 +117,7 @@ div {
 }
 
 /* SPECIAL SETTINGS  */
+#nav-spacer {
+  visibility: hidden;
+  flex-grow: 1;
+}
