@@ -1,3 +1,7 @@
+/*
+  Reducers sort the information received from actions based on the type
+*/
+
 import { LOAD_CARDS, ADD_CARD, EDITING, EDIT_CARD, DEL_CARD } from '../actions/card.actions';
 
 const initialState = [];

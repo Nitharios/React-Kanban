@@ -1,3 +1,9 @@
+/*
+  Serves as the connection between the front end and back end
+  Should look similar to a back end 'routes'
+  Passing the type and response data to the appropriate reducer
+*/ 
+
 import axios from 'axios';
 import success from '../lib/success';
 

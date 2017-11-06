@@ -1,3 +1,8 @@
+/*
+  Smart components know about state
+  Access to the store is provided through mapState and mapDispatch by exporting connect
+*/
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeCardEditable, editCard, deleteCard } from '../../actions/card.actions';

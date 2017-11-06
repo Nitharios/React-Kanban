@@ -1,3 +1,8 @@
+/*
+  Functional os stateless components know nothing about state
+  Props are the parameters passed in to functional components
+*/
+
 import React from 'react';
 import SelectComponent from './select.component';
 
